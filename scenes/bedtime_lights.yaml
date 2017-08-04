@@ -1,0 +1,12 @@
+  - name: BedTime Lights
+    entities:
+      light.kitchen_table_light_level:
+        state: on
+        brightness: 60
+      light.family_rm_level:
+        state: off
+      light.front_door_inside_level:
+        state: on
+        brightness: 25
+
+

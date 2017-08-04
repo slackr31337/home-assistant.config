@@ -1,0 +1,12 @@
+- platform: google_travel_time
+  name: Home to Work
+  api_key: !secret google_api
+  origin: Home
+  destination: I-Evolve
+
+- platform: google_travel_time
+  name: Robs ETA To Home
+  api_key: !secret google_api
+  origin: device_tracker.robert_phone
+  destination: Home
+

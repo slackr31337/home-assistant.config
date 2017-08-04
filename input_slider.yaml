@@ -1,0 +1,7 @@
+audio_volume:
+  name: Main Volume
+  initial: 70
+  min: 0
+  max: 100
+  step: 5  
+  icon: mdi:volume-medium

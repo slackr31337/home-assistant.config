@@ -1,0 +1,6 @@
+refresh_devices:
+  sequence:
+  - service: mqtt.publish
+    data:
+      topic: "owntracks/robert/phone/cmd"
+      payload_template: '{"_type":"cmd","action":"reportLocation"}'

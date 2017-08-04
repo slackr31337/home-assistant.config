@@ -1,0 +1,14 @@
+  - name: Home Lights
+    entities:
+      light.kitchen_table_light_level:
+        state: on
+        brightness: "{{ states('sensor.time_brightness')|int }}"
+      light.family_rm_level:
+        state: on
+        brightness: "{{ states('sensor.time_brightness')|int }}"
+      light.kitchen_light_level:
+        state: on
+        brightness: "{{ states('sensor.time_brightness')|int }}"
+      light.stairs_light_level:
+        state: on
+        brightness: "{{ states('sensor.time_brightness')|int }}"

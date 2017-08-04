@@ -1,0 +1,12 @@
+kitchen_lights:
+  alias: "Turn on kitchen lights for 2 hours"
+  sequence:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_table_light_level
+        brightness: 85
+    - delay: '02:00:00'
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_table_light_level
+

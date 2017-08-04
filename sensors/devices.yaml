@@ -1,0 +1,18 @@
+- platform: template
+  sensors:
+    xboxone:
+      friendly_name: 'Xbox One'
+      value_template: "{{ 'Online' if is_state('device_tracker.xboxone', 'home') else 'Offline' }}"
+    xbox360:
+      friendly_name: 'Xbox 360'
+      value_template: "{{ 'Online' if is_state('device_tracker.xbox360', 'home') else 'Offline' }}"
+    livingroomtv:
+      friendly_name: 'Living Room TV'
+      value_template: "{{ 'Online' if is_state('device_tracker.livingroomtv', 'home') else 'Offline' }}"
+    anapc:
+      friendly_name: 'Ana PC'
+      value_template: "{{ 'Online' if is_state('device_tracker.anapc', 'home') else 'Offline' }}"
+    thermostat_battery:
+      friendly_name: 'Thermostat Battery'
+      value_template: '{{ states.zwave.thermostat.attributes.battery_level }}'
+      unit_of_measurement: '%'

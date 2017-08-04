@@ -1,0 +1,30 @@
+
+- cal_id: slackr31337@gmail.com
+  entities:
+  - device_id: slackr31337gmailcom
+    name: slackr31337@gmail.com
+    track: true
+
+- cal_id: f09l5iddrt1r5lgl0noh6otct0dd098o@import.calendar.google.com
+  entities:
+  - device_id: rob_dunmires_facebook_events
+    name: Rob Dunmire's Facebook Events
+    track: true
+
+- cal_id: suprsarah83@gmail.com
+  entities:
+  - device_id: suprsarah83gmailcom
+    name: suprsarah83@gmail.com
+    track: true
+
+- cal_id: en.usa#holiday@group.v.calendar.google.com
+  entities:
+  - device_id: holidays_in_united_states
+    name: Holidays in United States
+    track: true
+
+- cal_id: '#contacts@group.v.calendar.google.com'
+  entities:
+  - device_id: contacts
+    name: Contacts
+    track: true

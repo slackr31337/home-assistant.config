@@ -1,62 +1,123 @@
 homeassistant:
-  # Name of the location where Home Assistant is running
   name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: 43.1426
-  longitude: -77.5451
-  # Impacts weather/sunrise data (altitude above sea level in meters)
-  elevation: 139
-  # metric for Metric, imperial for Imperial
+  latitude: !secret home_latitude
+  longitude: !secret home_longitude
+  elevation: !secret home_elevation
   unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/New_York
 
-# Show links to resources in log and frontend
-introduction:
-
-# Enables the frontend
 frontend:
-
-# Enables configuration UI
 config:
-
 http:
-  # Uncomment this to add a password (recommended!)
   # api_password: PASSWORD
-  # Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-  # base_url: example.duckdns.org:8123
+  # base_url: homepi.rd3s.com:8123
 
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-  # Optional, allows Home Assistant developers to focus on popular components.
   # include_used_components: true
 
-# Discover some devices automatically
 discovery:
-
-# Allows you to issue voice commands from the frontend in enabled browsers
+#hassio:
 conversation:
-
-# Enables support for tracking state changes over time
 history:
-
-# View all events in a logbook
-logbook:
-
-# Track the sun
+#logbook:
 sun:
+  
+group: !include groups.yaml
+automation: !include_dir_merge_list automation
+logbook: !include logbook.yaml
+light: !include_dir_merge_list lights
+scene: !include_dir_list scenes
+sensor: !include_dir_merge_list sensors
+script: !include_dir_merge_named scripts
+binary_sensor: !include_dir_merge_list binary_sensors
+input_boolean: !include input_boolean.yaml
+input_select: !include input_select.yaml
+input_slider: !include input_slider.yaml
 
-# Weather prediction
-sensor:
-  - platform: yr
+recorder:
+  purge_days: 30
+  db_url: !secret sql_uri
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+    entities:
+      - sun.sun
+      - sensor.last_boot
+      - sensor.date
 
-# Text to speech
 tts:
   - platform: google
 
-group: !include groups.yaml
-automation: !include automations.yaml
+zone:
+  name: !secret zone_name
+  latitude: !secret zone_latitude
+  longitude: !secret zone_longitude
+  icon: mdi:home
+  radius: 200
+
+zone 2:
+  name: !secret zone2_name
+  latitude: !secret zone2_latitude
+  longitude: !secret zone2_longitude
+  icon: mdi:briefcase
+  radius: 200
+  
+media_player 1:
+  - platform: pandora
+
+media_player 2:
+  - platform: webostv
+    host: 192.168.88.18
+    name: Living Room TV
+
+mqtt:
+  broker: !secret mqtt_broker
+  port: !secret mqtt_port
+  username: !secret mqtt_username
+  password: !secret mqtt_password
+
+device_tracker:
+  - platform: owntracks
+    waypoints: True
+
+device_tracker 1:
+  - platform: nmap_tracker
+    hosts: 192.168.88.1/24
+    home_inteval: 5
+    interval_seconds: 120
+    consider_home: 240
+    exclude:
+     - 192.168.88.1
+     - 192.168.88.32
+
+device_tracker 2:
+  - platform: mikrotik
+    host: !secret mikrotik_host
+    username: !secret mikrotik_user
+    password: !secret mikrotik_pass
+
+zwave:
+  usb_path: /dev/ttyACM0
+  
+notify:
+  - name: homepi.rd3s.com
+    platform: html5
+    gcm_api_key: !secret html5_gcm_api
+    gcm_sender_id: !secret html5_gcm_sender
+
+notify 1:
+  - platform: webostv
+    host: 192.168.88.18
+    name: livingroom_tv
+
+google:
+  client_id: !secret google_calendar_client_id
+  client_secret: !secret google_calendar_client_secret
+  track_new_calendar: false
+
+amcrest:
+  - host: 192.168.88.20
+    username: homepi
+    password: slrv40!@#!

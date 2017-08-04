@@ -1,0 +1,50 @@
+############################################################
+#
+# Sensor
+#
+############################################################
+# API Stream Sensor
+- platform: api_streams
+
+# Uptime
+- platform: command_line
+  name: piuptime
+  command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+
+# Speedtest
+- platform: speedtest
+  minute: 30
+  hour:
+    - 0
+    - 6
+    - 12
+    - 18
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+  server_id: 6989
+
+- platform: systemmonitor
+  resources:
+  - type: disk_use_percent
+    arg: /
+  - type: memory_free
+  - type: processor_use
+  - type: network_in
+    arg: eth0
+  - type: network_out
+    arg: eth0
+  - type: last_boot
+
+- platform: time_date
+  display_options:
+    - 'date_time'
+    - 'time'
+    - 'date'
+
+- platform: worldclock
+  time_zone: Etc/UTC
+  name: 'UTC'
+
+

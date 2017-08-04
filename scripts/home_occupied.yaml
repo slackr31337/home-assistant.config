@@ -1,0 +1,5 @@
+home_occupied:
+  alias: "Occupied Mode"
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.occupied_lights

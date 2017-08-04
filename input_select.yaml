@@ -1,0 +1,18 @@
+audio_player:
+  name: Audio Player
+  options:
+    - Living Room TV
+    - Pandora
+    - "None"
+  initial: "None"
+  icon: mdi:cast
+
+house_mode:
+  name: House Mode
+  options:
+    - "Occupied"
+    - "Away"
+    - "Quiet"
+    - "Armed"
+  initial: "Occupied"
+  icon: mdi:home-variant

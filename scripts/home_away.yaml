@@ -1,0 +1,15 @@
+home_away:
+  alias: "Away Mode"
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.away_lights
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.pandora
+    #- service: media_player.turn_off
+    #  data:
+    #    entity_id: media_player.living_room_tv
+    - service: notify.homepird3scom_html5_robert_phone
+      data:
+        message: 'House is set to away mode.'
+        

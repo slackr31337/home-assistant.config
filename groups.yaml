@@ -1,0 +1,200 @@
+
+default_view:
+  view: yes
+  name: Home
+  icon: mdi:home
+  entities:
+    - device_tracker.robert_phone
+    - device_tracker.sarah_phone
+    - device_tracker.ana_phone
+    - device_tracker.brayden_3ds
+    - group.weather
+    - group.media_audio
+    - group.media_pandora
+    - group.media_tv
+    - media_player.roku2__brayden
+
+calendar_view:
+  view: yes
+  icon: mdi:calendar-clock
+  entities:
+    - group.calendar_items
+    - group.drive_time
+
+security_view:
+  view: yes
+  icon: mdi:security-home
+  entities:
+    - group.house_mode
+    - group.occupancy
+    - group.cameras
+
+device_view:
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.house_lights
+    - group.outdoor_lights
+    - group.thermostat
+
+network_view:
+  view: yes
+  icon: mdi:network
+  entities:
+    - group.devices
+    - group.network
+    - group.system
+
+info_view:
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.automation_override
+    - group.scripts
+
+##########################################
+
+calendar_items:
+  name: Calendar
+  entities:
+    - sensor.date
+    - binary_sensor.workday_sensor
+    - sensor.next_calendar_event
+
+house_mode:
+   name: House Mode
+   entities:
+     - sensor.occupancy_house
+     - sensor.quiet_time
+     - input_select.house_mode
+
+occupancy:
+   name: Occupancy
+   entities:
+     - sensor.front_hall_motion_sensor
+     - sensor.garage_inside_motion_sensor
+
+house_lights:
+  name: Inside Lights
+  entities:
+    - switch.front_door_motion_light_switch
+    - light.kitchen_light_level
+    - light.kitchen_table_light_level
+    - light.family_rm_level
+    - switch.livingroom_plug1_switch
+    - light.stairs_light_level
+    - switch.garage_inside_motion_switch
+
+outdoor_lights:
+  name: Outdoor Lights
+  entities:
+    - switch.front_outside_lights_switch
+
+thermostat:
+    name: Thermostat
+    entities:
+    - sensor.pws_temp_f
+    - sensor.thermostat_temperature
+    - climate.thermostat_cooling_1
+    - climate.thermostat_heating_1
+    - sensor.thermostat_battery
+
+family:
+  name: Family
+  entities:
+    - device_tracker.robert_phone
+    - device_tracker.sarah_phone
+    - device_tracker.ana_phone
+    - device_tracker.brayden_phone
+
+weather:
+  name: Weather
+  entities:
+    - sensor.pws_weather_1d
+    - sun.sun
+    - sun.sun_next_dawn
+    - sun.sun_next_setting
+    - sensor.pws_temp_f
+    - sensor.pws_temp_high_1d_f
+    - sensor.pws_temp_low_1d_f
+    - sensor.pws_relative_humidity
+    - sensor.pws_precip_today_in
+
+media_audio:
+  name: Main Audio
+  entities:
+    - input_select.audio_player
+    - input_slider.audio_volume
+
+media_pandora:
+  name: Media Pandora
+  entities:
+    - media_player.pandora
+
+media_tv:
+  name: Living Rm TV
+  entities:
+    - media_player.living_room_tv
+
+media_roku:
+  name: Roku
+  entities: 
+    - media_player.roku2
+
+cameras:
+  name: Cameras
+  entities:
+    - camera.amcrest_camera
+
+devices:
+  name: Devices
+  entities:
+    - sensor.livingroomtv
+    - sensor.anapc
+    - sensor.xboxone
+    - sensor.xbox360
+
+network:
+  name: Network
+  entities:
+    - sensor.speedtest_ping
+    - sensor.speedtest_download
+    - sensor.speedtest_upload
+
+system:
+  name: System
+  entities:
+    - sensor.cpu_use
+    - sensor.ram_free
+    - sensor.disk_use_
+    - sensor.received_eth0
+    - sensor.sent_eth0
+    - sensor.piuptime
+    - sensor.last_boot
+    - updater.updater
+
+drive_time:
+  name: Drive Time
+  entities:
+    - sensor.home_to_work
+    - sensor.robs_eta_to_home
+
+automation_override:
+  name: Automation Override
+  entities:
+    - input_boolean.disable_auto_lights
+    - input_boolean.disable_media_player_light_control
+    - input_boolean.disable_current_time_temp_notification
+    - input_boolean.disable_morning_notification
+    - input_boolean.disable_afternoon_notification
+    - input_boolean.disable_unexpected_motion_notification
+    - input_boolean.disable_device_tampering_notification
+
+scripts:
+  name: Scripts
+  entities:
+    - script.good_night
+    - script.home_away
+
+
+

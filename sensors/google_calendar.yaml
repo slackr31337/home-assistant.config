@@ -1,0 +1,16 @@
+- platform: template
+  sensors:
+    next_calendar_event:
+      friendly_name: 'Next Event'
+      value_template: >
+          {{ strptime(states.calendar.slackr31337gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %B %d") }}:
+          {{ states.calendar.slackr31337gmailcom.attributes.message }}
+    next_calendar_event_date:
+      friendly_name: 'Event Date'
+      value_template: '{{ states.calendar.slackr31337gmailcom.attributes.start_time }}'
+    next_calendar_fb_event:
+      friendly_name: 'Next Facebook Event'
+      value_template: '{{ states.calendar.rob_dunmires_facebook_events.message }}'
+    next_calendar_fb_event_date:
+      friendly_name: 'Facebook Event Date'
+      value_template: '{{ states.calendar.rob_dunmires_facebook_events.start_time }}'

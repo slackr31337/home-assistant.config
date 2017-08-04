@@ -1,0 +1,12 @@
+- platform: template
+  sensors:
+    occupancy_house:
+      friendly_name: House Occupied
+      value_template: >-
+        {%- if is_state('group.family', 'home') -%}
+          Yes
+        {%- elif is_state('group.occupancy', 'Motion') -%}
+          Yes
+        {%- else -%}
+          No
+        {%- endif -%}

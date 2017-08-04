@@ -1,0 +1,13 @@
+  - name: Away Lights
+    entities:
+      light.kitchen_table_light_level:
+        state: on
+        brightness: 80
+      light.family_rm_level:
+        state: off
+      light.kitchen_light_level:
+        state: off
+      switch.livingroom_plug1_switch:
+        state: on
+      light.stairs_light_level:
+        state: off

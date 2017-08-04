@@ -1,0 +1,12 @@
+  - name: Morning Lights
+    entities:
+      light.kitchen_table_light_level:
+        state: on
+        brightness: 90
+      light.family_rm_level:
+        state: on
+        brightness: 90
+      light.kitchen_light_level:
+        state: on
+        brightness: 90
+
