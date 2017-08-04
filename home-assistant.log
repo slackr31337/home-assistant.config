@@ -1,0 +1,4 @@
+2017-08-04 01:01:21 WARNING (MainThread) [homeassistant.setup] Setup of sensor is taking over 10 seconds.
+2017-08-04 01:02:05 WARNING (MainThread) [homeassistant.setup] Setup of tts is taking over 10 seconds.
+2017-08-04 01:02:41 WARNING (Thread-4) [netdisco.ssdp] Found malformed XML at http://192.168.88.17:9080: status=ok
+2017-08-04 01:02:42 WARNING (Thread-4) [netdisco.ssdp] Found malformed XML at http://192.168.88.18:9080: status=ok
