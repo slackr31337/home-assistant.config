@@ -5,25 +5,24 @@ homeassistant:
   elevation: !secret home_elevation
   unit_system: imperial
   time_zone: America/New_York
+  customize: !include customize.yaml
+  customize_domain: {}
+  customize_glob: {}
 
 frontend:
 config:
 http:
   # api_password: PASSWORD
-  # base_url: homepi.rd3s.com:8123
-
 updater:
-  # include_used_components: true
-
 discovery:
 #hassio:
 conversation:
 history:
-#logbook:
+shopping_list:
 sun:
-  
+
 group: !include groups.yaml
-automation: !include_dir_merge_list automation
+automation: !include_dir_merge_list automations
 logbook: !include logbook.yaml
 light: !include_dir_merge_list lights
 scene: !include_dir_list scenes
@@ -48,7 +47,7 @@ recorder:
       - sensor.date
 
 tts:
-  - platform: google
+  - platform: picotts
 
 zone:
   name: !secret zone_name
@@ -63,7 +62,10 @@ zone 2:
   longitude: !secret zone2_longitude
   icon: mdi:briefcase
   radius: 200
-  
+ 
+ffmpeg:
+  ffmpeg_bin: /usr/bin/ffmpeg
+ 
 media_player 1:
   - platform: pandora
 
@@ -71,6 +73,11 @@ media_player 2:
   - platform: webostv
     host: 192.168.88.18
     name: Living Room TV
+
+media_player 3:
+  - platform: vlc
+    name: homepi_audio
+    arguments: '--alsa-audio-device=hw:0,0'
 
 mqtt:
   broker: !secret mqtt_broker
@@ -100,6 +107,14 @@ device_tracker 2:
 
 zwave:
   usb_path: /dev/ttyACM0
+  config_path: /srv/homeassistant/src/open-zwave-control-panel/config
+  new_entity_ids: true
+  polling_interval: 30000
+  device_config:
+    switch.garage_inside_motion_switch:
+      polling_intensity: 1
+    switch.front_door_motion_light_switch:
+      polling_intensity: 1
   
 notify:
   - name: homepi.rd3s.com
@@ -119,5 +134,9 @@ google:
 
 amcrest:
   - host: 192.168.88.20
-    username: homepi
-    password: slrv40!@#!
+    username: !secret amcrest_user
+    password: !secret amcrest_pass
+    stream_source: rtsp
+    resolution: low
+    scan_interval: 5
+

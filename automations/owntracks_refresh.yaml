@@ -1,0 +1,17 @@
+- alias: Owntracks Refresh
+  condition:
+    - condition: time
+      after: '07:00:00'
+      before: '08:30:00'
+    - condition: time
+      after: '16:30:00'
+      before: '19:30:00'
+  trigger:
+    - platform: time
+      minutes: '/2'
+      seconds: 0
+  action:
+    service: script.refresh_devices
+
+
+

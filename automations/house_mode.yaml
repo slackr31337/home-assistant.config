@@ -1,0 +1,9 @@
+- alias: Change House Mode
+  trigger:
+    - platform: state
+      entity_id: input_slider.house_mode
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.home_mode
+
+

@@ -1,0 +1,10 @@
+- alias: Notify When Battery Low
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.thermostat_battery
+    below: '10'
+  action:
+    service: notify.notify
+    data_template:
+      message: >
+        {{ trigger.to_state.attributes.friendly_name }} Has Low Battery

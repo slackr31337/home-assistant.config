@@ -2,7 +2,7 @@
     entities:
       light.kitchen_table_light_level:
         state: on
-        brightness: 80
+        brightness: 92
       light.family_rm_level:
         state: off
       light.kitchen_light_level:

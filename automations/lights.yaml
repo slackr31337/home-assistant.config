@@ -1,0 +1,79 @@
+- alias: 'Lights - Away Mode Night'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_house
+      state: 'No'
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "01:22:00"
+  action:
+    service: scene.turn_on
+    entity_id: scene.away_lights
+
+- alias: 'Lights - Arrive Home Late'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+  trigger:
+    platform: state
+    entity_id: sensor.occupancy_house
+    to: 'Yes'
+  action:
+    service: scene.turn_on
+    entity_id: scene.home_lights
+
+- alias: 'Lights - After Midnight'
+  trigger:
+      platform: time
+      at: '00:15:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: group.house_lights
+
+# ====================================================
+
+- alias: 'Outside Lights turn on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+  trigger:
+    - platform: time
+      at: '05:11:20'
+    - platform: sun
+      event: sunset
+      offset: "00:30:00"
+  action:
+    service: switch.turn_on
+    entity_id: switch.front_outside_lights_switch
+
+- alias: 'Outside Lights turn off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+  trigger:
+      - platform: time
+        at: '00:23:10'
+      - platform: sun
+        event: sunrise
+        offset: "-00:30:00"
+  action:
+    service: switch.turn_off
+    entity_id: switch.front_outside_lights_switch
+
+# ====================================================
+
+

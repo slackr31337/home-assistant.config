@@ -20,6 +20,7 @@ calendar_view:
   entities:
     - group.calendar_items
     - group.drive_time
+    - group.alarm_clock
 
 security_view:
   view: yes
@@ -60,6 +61,7 @@ calendar_items:
     - sensor.date
     - binary_sensor.workday_sensor
     - sensor.next_calendar_event
+    - sensor.next_calendar_fb_event
 
 house_mode:
    name: House Mode
@@ -71,6 +73,8 @@ house_mode:
 occupancy:
    name: Occupancy
    entities:
+     - sensor.family_room_motion_sensor
+     - sensor.kids_room1_motion_sensor
      - sensor.front_hall_motion_sensor
      - sensor.garage_inside_motion_sensor
 
@@ -83,12 +87,14 @@ house_lights:
     - light.family_rm_level
     - switch.livingroom_plug1_switch
     - light.stairs_light_level
+    - switch.kids_room1_switch
     - switch.garage_inside_motion_switch
 
 outdoor_lights:
   name: Outdoor Lights
   entities:
     - switch.front_outside_lights_switch
+    - light.back_patio_light_level
 
 thermostat:
     name: Thermostat
@@ -114,9 +120,9 @@ weather:
     - sun.sun
     - sun.sun_next_dawn
     - sun.sun_next_setting
-    - sensor.pws_temp_f
     - sensor.pws_temp_high_1d_f
     - sensor.pws_temp_low_1d_f
+    - sensor.pws_temp_f
     - sensor.pws_relative_humidity
     - sensor.pws_precip_today_in
 
@@ -189,6 +195,14 @@ automation_override:
     - input_boolean.disable_afternoon_notification
     - input_boolean.disable_unexpected_motion_notification
     - input_boolean.disable_device_tampering_notification
+
+alarm_clock:
+  name: 'Alarm Clock'
+  entities:
+    - sensor.alarm_clock_time
+    - input_slider.alarm_clock_hour
+    - input_slider.alarm_clock_minute
+    - input_boolean.alarm_clock_status
 
 scripts:
   name: Scripts

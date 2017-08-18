@@ -1,0 +1,36 @@
+- alias: Turn kitchen lights Motion 
+  trigger:
+    platform: state
+    entity_id: sensor.front_hall_motion_sensor
+    to: 'Motion'
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+    - condition: state
+      entity_id: sensor.occupancy_house
+      state: 'No'
+  action:
+    service: light.turn_on
+    entity_id: light.kitchen_table_light_level
+    data:
+        brightness: "{{ states('sensor.time_brightness')|int }}"
+
+
+- alias: Unexpected Motion - Garage
+  trigger:
+    platform: state
+    entity_id: sensor.garage_inside_motion_sensor
+    to: 'Motion'
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_unexpected_motion_notification
+      state: 'off'
+    - condition: state
+      entity_id: sensor.occupancy_robert
+      state: 'No'
+  action:
+    service: notify.homepird3scom_html5_robert_phone
+    data:
+      message: "Unexpected Motion! Garage at {{ state(sensor.time) }}"
+

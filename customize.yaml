@@ -1,0 +1,121 @@
+sensor.thermostat_temperature:
+  friendly_name: Inside Temperature
+sensor.pws_temp_f:
+  friendly_name: Outside Temperature
+climate.thermostat_cooling_1:
+  friendly_name: Thermostat Cooling
+climate.thermostat_heating_1:
+  friendly_name: Thermostat Heating
+
+media_player.living_room_home:
+  friendly_name: Living Room Home
+media_player.outside:
+  friendly_name: Outside Speakers
+
+sensor.weather_minimum:
+ icon: 'mdi:thermometer'
+sensor.weather_maximum:
+ icon: 'mdi:thermometer'
+sensor.speedtest_download:
+ icon: 'mdi:speedometer'
+sensor.speedtest_upload:
+  icon: 'mdi:speedometer'
+sensor.speedtest_ping:
+  icon: 'mdi:speedometer'
+sensor.piuptime:
+  friendly_name: Uptime
+  icon: 'mdi:clock-start'
+sensor.xboxone:
+  icon: 'mdi:xbox'
+sensor.xbox360:
+  icon: 'mdi:xbox'
+sensor.bedroomchromecast:
+  icon: 'mdi:cast'
+sensor.outsidechromecast:
+  icon: 'mdi:cast'
+sensor.livingroomtv:
+  icon: 'mdi:television'
+
+binary_sensor.workday_sensor:
+  friendly_name: Workday
+
+sensor.cpu_load_total:
+  friendly_name: CPU Usage
+sensor.memory_usage_real:
+  friendly_name: Memory Usage
+
+binary_sensor.tampering:
+  friendly_name: Sensor Tampering
+  icon: mdi:shield-outline
+
+light.kitchen_table_light_level:
+  friendly_name: Kitchen Table Light
+  icon: 'mdi:ceiling-light'
+
+light.kitchen_light_level:
+  friendly_name: Kitchen Light
+  icon: 'mdi:lightbulb'
+
+light.family_rm_level:
+  friendly_name: Family Room Light
+  icon: 'mdi:lightbulb'
+
+light.front_door_inside_level:
+  friendly_name: Kitchen Light
+  icon: 'mdi:lightbulb'
+
+switch.front_outside_lights_switch:
+  friendly_name: Front Outside Lights
+
+switch.front_door_motion_light_switch:
+  friendly_name: Front Door Inside Light
+  icon: 'mdi:lightbulb'
+
+switch.livingroom_plug1_switch:
+  friendly_name: Living Room Lamp
+  icon: 'mdi:lamp'
+
+switch.garage_inside_motion_switch:
+  friendly_name: Garage Inside Light 
+  icon: 'mdi:lightbulb'
+
+light.stairs_light_level:
+  friendly_name: Stairs Light
+
+light.back_patio_light_level:
+  friendly_name: Back Patio Light
+  icon: 'mdi:lightbulb'
+
+switch.kids_room1_switch:
+  friendly_name: Brayden's Room Light
+  icon: 'mdi:lightbulb'
+
+camera.amcrest_camera:
+  friendly_name: Front Door
+
+# Alarm clock sensors
+sensor.time:
+  hidden: true
+sensor.alarm_clock_hour:
+  hidden: true
+sensor.alarm_clock_minute:
+  hidden: true
+sensor.alarm_clock_time_long:
+  hidden: true
+sensor.alarm_clock_time:
+  friendly_name: 'Alarm Set'
+  icon: mdi:alarm
+# Alarm clock inputs
+input_slider.alarm_clock_hour:
+  friendly_name: 'Hour'
+  icon: mdi:timer
+input_slider.alarm_clock_minute:
+  friendly_name: 'Minute'
+  icon: mdi:timer
+input_boolean.alarm_clock_status:
+  friendly_name: 'Activated'
+  icon: mdi:alarm-check
+
+script.good_night:
+  friendly_name: Good Night
+  icon: mdi:sleep

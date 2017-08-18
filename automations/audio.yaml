@@ -1,0 +1,21 @@
+- alias: Change Volume 
+  trigger:
+    - platform: state
+      entity_id: input_slider.audio_volume
+  condition:
+    - condition: template
+      value_template: "{{ states.input_select.audio_player.state != 'OFF' }}"
+  action:
+    - service: media_player.volume_set
+      data_template:
+        entity_id: >
+          {% if is_state("input_select.audio_player", "Living Room TV") %}
+            media_player.living_room_tv
+          {% elif is_state("input_select.audio_player", "Pandora") %}
+            media_player.pandora
+          {% elif is_state("input_select.audio_player", "HomePi") %}
+            media_player.homepi_audio
+          {% else %}
+            "None"
+          {% endif %}
+        volume_level: "{{ states.input_slider.audio_volume.state | float / 100 }}"

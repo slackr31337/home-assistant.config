@@ -1,8 +1,8 @@
-2017-08-04 02:13:43 WARNING (Thread-12) [homeassistant.components.media_player.pandora] The Pandora component depends on the Pianobar client, which cannot be found. Please install using instructions at https://home-assistant.io/components/media_player.pandora/
-2017-08-04 02:13:44 WARNING (MainThread) [homeassistant.setup] Setup of notify is taking over 10 seconds.
-2017-08-04 02:13:44 WARNING (MainThread) [homeassistant.setup] Setup of sensor is taking over 10 seconds.
-2017-08-04 02:13:45 WARNING (MainThread) [homeassistant.setup] Setup of media_player is taking over 10 seconds.
-2017-08-04 02:13:45 ERROR (MainThread) [homeassistant.components.sensor] Error while setting up platform fitbit
+2017-08-18 10:56:36 WARNING (MainThread) [homeassistant.setup] Setup of notify is taking over 10 seconds.
+2017-08-18 10:56:37 WARNING (MainThread) [homeassistant.setup] Setup of sensor is taking over 10 seconds.
+2017-08-18 10:56:37 WARNING (MainThread) [homeassistant.setup] Setup of media_player is taking over 10 seconds.
+2017-08-18 10:56:38 WARNING (MainThread) [homeassistant.setup] Setup of device_tracker is taking over 10 seconds.
+2017-08-18 10:56:40 ERROR (MainThread) [homeassistant.components.sensor] Error while setting up platform fitbit
 Traceback (most recent call last):
   File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/helpers/entity_component.py", line 164, in _async_setup_platform
     SLOW_SETUP_MAX_WAIT, loop=self.hass.loop)
@@ -25,263 +25,114 @@ Traceback (most recent call last):
   File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/oauthlib/oauth2/rfc6749/parameters.py", line 386, in validate_token_parameters
     raise MissingTokenError(description="Missing access token parameter.")
 oauthlib.oauth2.rfc6749.errors.MissingTokenError: (missing_token) Missing access token parameter.
-2017-08-04 02:13:46 WARNING (MainThread) [homeassistant.setup] Setup of device_tracker is taking over 10 seconds.
-2017-08-04 02:13:57 WARNING (MainThread) [homeassistant.components.sensor.template] Could not render template Thermostat Battery, the state is unknown.
-2017-08-04 02:14:19 WARNING (Thread-5) [netdisco.ssdp] Found malformed XML at http://192.168.88.18:9080: status=ok
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:54 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:55 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:56 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:56 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:56 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.core] Timer got out of sync. Resetting
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:57 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:59 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:59 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:14:59 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:15:00 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:15:00 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:15:00 ERROR (MainThread) [homeassistant.core] Timer got out of sync. Resetting
-2017-08-04 02:15:00 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:15:00 ERROR (MainThread) [homeassistant.components.device_tracker.owntracks] Location missing from `Entering/Leaving` message - please turn `Share` on in OwnTracks app
-2017-08-04 02:30:10 WARNING (MainThread) [homeassistant.helpers.entity] Update of media_player.roku2__brayden is taking over 10 seconds
-2017-08-04 02:30:11 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:30:22 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:30:33 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:30:44 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:30:55 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:31:06 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:31:17 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:31:28 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:31:39 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:31:50 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:32:01 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:32:12 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:32:23 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:32:34 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:32:45 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:32:56 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:33:07 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:33:18 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:33:29 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:33:40 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:33:51 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:02 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:13 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:24 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:35 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:46 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:48 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.robs_eta_to_home is taking over 10 seconds
-2017-08-04 02:34:48 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.robs_eta_to_home fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/lib/python3.4/http/client.py", line 1172, in getresponse
-    response.begin()
-  File "/usr/lib/python3.4/http/client.py", line 351, in begin
-    version, status, reason = self._read_status()
-  File "/usr/lib/python3.4/http/client.py", line 313, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/lib/python3.4/socket.py", line 371, in readinto
-    return self._sock.recv_into(b)
-  File "/usr/lib/python3.4/ssl.py", line 745, in recv_into
-    return self.read(nbytes, buffer)
-  File "/usr/lib/python3.4/ssl.py", line 617, in read
-    v = self._sslobj.read(len, buffer)
-socket.timeout: The read operation timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/util/retry.py", line 357, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/packages/six.py", line 686, in reraise
-    raise value
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
-    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/client.py", line 229, in _request
-    **final_requests_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/adapters.py", line 514, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/helpers/entity.py", line 225, in async_update_ha_state
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.4/asyncio/futures.py", line 388, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.4/asyncio/tasks.py", line 286, in _wakeup
-    value = future.result()
-  File "/usr/lib/python3.4/asyncio/futures.py", line 277, in result
-    raise self._exception
-  File "/usr/lib/python3.4/concurrent/futures/thread.py", line 54, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/util/__init__.py", line 303, in wrapper
-    result = method(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/components/sensor/google_travel_time.py", line 229, in update
-    self._origin, self._destination, **options_copy)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/client.py", line 356, in wrapper
-    result = func(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/distance_matrix.py", line 130, in distance_matrix
-    return client._request("/maps/api/distancematrix/json", params)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/client.py", line 231, in _request
-    raise googlemaps.exceptions.Timeout()
-googlemaps.exceptions.Timeout
-2017-08-04 02:34:57 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:34:58 WARNING (MainThread) [homeassistant.helpers.entity] Update of sensor.home_to_work is taking over 10 seconds
-2017-08-04 02:34:58 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.home_to_work fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/lib/python3.4/http/client.py", line 1172, in getresponse
-    response.begin()
-  File "/usr/lib/python3.4/http/client.py", line 351, in begin
-    version, status, reason = self._read_status()
-  File "/usr/lib/python3.4/http/client.py", line 313, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/lib/python3.4/socket.py", line 371, in readinto
-    return self._sock.recv_into(b)
-  File "/usr/lib/python3.4/ssl.py", line 745, in recv_into
-    return self.read(nbytes, buffer)
-  File "/usr/lib/python3.4/ssl.py", line 617, in read
-    v = self._sslobj.read(len, buffer)
-socket.timeout: The read operation timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/util/retry.py", line 357, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/packages/six.py", line 686, in reraise
-    raise value
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
-    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/client.py", line 229, in _request
-    **final_requests_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/adapters.py", line 514, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='maps.googleapis.com', port=443): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/helpers/entity.py", line 225, in async_update_ha_state
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.4/asyncio/futures.py", line 388, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.4/asyncio/tasks.py", line 286, in _wakeup
-    value = future.result()
-  File "/usr/lib/python3.4/asyncio/futures.py", line 277, in result
-    raise self._exception
-  File "/usr/lib/python3.4/concurrent/futures/thread.py", line 54, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/util/__init__.py", line 303, in wrapper
-    result = method(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/components/sensor/google_travel_time.py", line 229, in update
-    self._origin, self._destination, **options_copy)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/client.py", line 356, in wrapper
-    result = func(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/distance_matrix.py", line 130, in distance_matrix
-    return client._request("/maps/api/distancematrix/json", params)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/googlemaps/client.py", line 231, in _request
-    raise googlemaps.exceptions.Timeout()
-googlemaps.exceptions.Timeout
-2017-08-04 02:35:08 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:35:19 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:35:30 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:35:41 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:35:52 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:36:03 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:36:14 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:36:25 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:36:36 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:36:47 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:36:58 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:37:09 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:37:20 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:37:31 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:37:42 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
-2017-08-04 02:37:53 WARNING (MainThread) [homeassistant.components.media_player] Updating roku media_player took longer than the scheduled update interval 0:00:10
+2017-08-18 10:56:53 WARNING (MainThread) [homeassistant.components.sensor.template] Could not render template Thermostat Battery, the state is unknown.
+2017-08-18 10:56:55 WARNING (MainThread) [homeassistant.helpers.condition] Value cannot be processed as a number: 
+2017-08-18 10:57:16 WARNING (Thread-8) [netdisco.ssdp] Found malformed XML at http://192.168.88.18:9080: status=ok
+2017-08-18 10:57:23 WARNING (Thread-9) [homeassistant.components.zwave] zwave not ready after 30 seconds, continuing anyway
+2017-08-18 10:58:28 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 10:58:38 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 10:58:38 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 10:58:38 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 10:58:38 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 10:58:49 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:00:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:00:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:00:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:00:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:08 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:18 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:18 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:18 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:18 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='192.168.88.20', port=80): Read timed out. (read timeout=3.0)",)': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:51 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:58 WARNING (Thread-7) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:58 WARNING (Thread-7) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:58 WARNING (Thread-7) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:02:58 WARNING (Thread-7) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:03:02 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:03:02 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:03:02 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:03:02 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:03:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:04:08 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:04:08 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:04:08 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:04:08 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:05:48 WARNING (Thread-5) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:05:58 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:05:58 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:05:58 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:05:58 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:07:38 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:07:48 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:07:48 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:07:48 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:07:48 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:09:28 WARNING (Thread-5) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:09:38 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:09:38 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:09:38 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:09:38 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:11:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:11:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:11:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:11:28 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:13:18 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:13:18 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:13:18 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:13:18 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:14:58 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:15:08 WARNING (Thread-6) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:15:08 WARNING (Thread-6) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:15:08 WARNING (Thread-6) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:15:08 WARNING (Thread-6) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:16:48 WARNING (Thread-5) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:16:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:16:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:16:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:16:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:17:57 ERROR (MainThread) [homeassistant.core] Timer got out of sync. Resetting
+2017-08-18 11:18:38 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:18:48 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:18:48 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:18:48 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:18:48 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:20:28 WARNING (Thread-6) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:20:38 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:20:38 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:20:38 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:20:38 WARNING (Thread-9) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:22:18 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:22:28 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:22:28 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:22:28 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:22:28 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:08 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:08 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:18 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:18 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:18 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:18 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:24:31 WARNING (Thread-11) [netdisco.ssdp] Error fetching description at http://192.168.88.22:2869/upnphost/udhisapi.dll?content=uuid:b0611f8b-d39a-4ba4-bd02-c7e7479ffd35
+2017-08-18 11:25:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:26:08 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:26:08 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:26:08 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:26:09 WARNING (Thread-8) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:27:48 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:27:58 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:27:58 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:27:59 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:27:59 WARNING (Thread-11) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:29:38 WARNING (Thread-6) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:29:48 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:29:48 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:29:49 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-08-18 11:29:49 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1

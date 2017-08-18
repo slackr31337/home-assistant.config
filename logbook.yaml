@@ -1,20 +1,22 @@
 include:
   entities:
-    - device_tracker.trent_trent
-    - device_tracker.androide14fdffea99b53a1
+    - device_tracker.robert_phone
+    - device_tracker.sarah_phone
+    - device_tracker.ana_phone
+    - sensor.occupancy_house
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
-    - sensor.nzbget_speed
     - sensor.livingroomtv
-    - sensor.livingroomchromecast
-    - sensor.bedroomchromecast
-    - sensor.outsidechromecast
     - sensor.xboxone
-    - sensor.ps4
     - sensor.weather_summary
     - sensor.weather_temperature
     - sensor.weather_precip_intensity
     - sensor.weather_humidity
+    - sensor.garage_inside_motion_sensor
   domains:
     - sun
+    - switch
+    - light
+    - notify
+    - script

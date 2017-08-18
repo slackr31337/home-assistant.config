@@ -1,0 +1,9 @@
+wake_up:
+  sequence:
+    - service: scene.turn_on
+      entity_id: scene.morning_lights
+    - service: notify.homepird3scom_html5_robert_phone
+      data:
+        message: 'Wake up alarm!'
+
+

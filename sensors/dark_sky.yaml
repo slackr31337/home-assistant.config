@@ -1,23 +1,23 @@
 # Dark Sky Weather
 - platform: darksky
   api_key: !secret darksky_api
-  name: Weather
+  name: dark_sky
   monitored_conditions:
     - summary
-#    - icon
+    - icon
 #    - nearest_storm_distance
 #    - nearest_storm_bearing
 #    - precip_type
     - precip_intensity
-#    - precip_probability
+    - precip_probability
     - temperature
-#    - apparent_temperature
+    - apparent_temperature
 #    - dew_point
-#    - wind_speed
-#    - wind_bearing
+    - wind_speed
+    - wind_bearing
 #    - cloud_cover
     - humidity
-#    - pressure
+    - pressure
 #    - visibility
 #    - ozone
     - minutely_summary

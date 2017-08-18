@@ -3,7 +3,7 @@
     time_brightness:
       value_template: >-
         {%- if now().strftime('%H%M')|int < 530 -%}
-          80
+          92
         {%- elif now().strftime('%H%M')|int < 700 -%}
           128
         {%- elif now().strftime('%H%M')|int < 800 -%}

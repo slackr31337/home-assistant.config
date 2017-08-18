@@ -3,6 +3,7 @@ audio_player:
   options:
     - Living Room TV
     - Pandora
+    - HomePi
     - "None"
   initial: "None"
   icon: mdi:cast

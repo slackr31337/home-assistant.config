@@ -1,0 +1,27 @@
+- alias: 'Home - Away Mode'
+  trigger:
+    platform: state
+    entity_id: sensor.occupancy_house
+    to: 'No'
+    for:
+      minutes: 5
+  condition:
+    condition: time
+    after: '10:00:00'
+    before: '15:00:00'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.home_away
+
+- alias: 'Home - Occupied Mode'
+  trigger:
+    platform: state
+    entity_id: sensor.occupancy_house
+    to: 'Yes'
+    for:
+      minutes: 5
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.home_occupied
+
+

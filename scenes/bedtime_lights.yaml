@@ -2,11 +2,11 @@
     entities:
       light.kitchen_table_light_level:
         state: on
-        brightness: 60
+        brightness: "{{ states('sensor.time_brightness')|int }}"
       light.family_rm_level:
         state: off
-      light.front_door_inside_level:
+      light.stairs_light_level:
         state: on
-        brightness: 25
+        brightness: "{{ states('sensor.time_brightness')|int }}"
 
 

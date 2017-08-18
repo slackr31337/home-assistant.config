@@ -1,0 +1,19 @@
+- alias: 'Speak current time and tempature'
+  trigger:
+   - platform: time
+     minutes: '00'
+     seconds: '00'
+  condition:
+   - condition: state
+     entity_id: input_boolean.disable_current_time_temp_notification
+     state: 'off'
+   - condition: state
+     entity_id: sensor.quiet_time
+     state: 'False'
+  action:
+  - service: tts.picotts_say
+    entity_id: media_player.homepi_audio
+    data:
+      message: "The time is now {{ sensor.time }} and the current tempature is {{ sensor.pws_temp_f }} degrees"
+      cache: false
+

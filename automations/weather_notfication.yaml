@@ -1,0 +1,26 @@
+- alias: 'Send notification when sun rises'
+  trigger:
+   - platform: sun
+     event: sunrise
+     offset: '+00:30:00'
+  condition:
+   - condition: state
+     entity_id: input_boolean.disable_morning_notification
+     state: 'off'
+  action:
+  - service: notify.homepird3scom_html5_robert_phone
+    data:
+      message: "Good morning! Today: {{ states('sensor.pws_weather_1d') }}, tempatures ranging {{ states('sensor.pws_temp_low_1d_f') }} - {{ states('sensor.pws_temp_high_1d_f') }}°f  Now: {{ states('sensor.pws_temp_f') }}°f"  
+      
+- alias: 'Send notification when sun sets'
+  trigger:
+   - platform: sun
+     event: sunset
+  condition:
+   - condition: state
+     entity_id: input_boolean.disable_afternoon_notification
+     state: 'off'
+  action:
+  - service: notify.homepird3scom_html5_robert_phone
+    data:
+      message: "The sun has set. Tonight: {{ states('sensor.pws_weather_1n') }} Tomorrow:{{ states('sensor.pws_weather_2d') }} Now: {{ states('sensor.pws_temp_f') }}°f "
