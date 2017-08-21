@@ -9,11 +9,11 @@
      state: 'off'
    - condition: state
      entity_id: sensor.quiet_time
-     state: 'False'
+     state: 'false'
   action:
   - service: tts.picotts_say
     entity_id: media_player.homepi_audio
     data:
-      message: "The time is now {{ sensor.time }} and the current tempature is {{ sensor.pws_temp_f }} degrees"
+      message: 'The time is now {{ sensor.time }} and the tempature is {{ sensor.pws_temp_f }} degrees'
       cache: false
 

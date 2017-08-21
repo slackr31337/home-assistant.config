@@ -9,8 +9,6 @@ default_view:
     - device_tracker.ana_phone
     - device_tracker.brayden_3ds
     - group.weather
-    - group.media_audio
-    - group.media_pandora
     - group.media_tv
     - media_player.roku2__brayden
 
@@ -29,6 +27,15 @@ security_view:
     - group.house_mode
     - group.occupancy
     - group.cameras
+
+audio_view:
+  view: yes
+  icon: mdi:speaker
+  entities:
+    - group.media_audio
+    - media_player.mpd
+    - media_player.snapcast_client_b827eb6f00e5
+    - media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
 
 device_view:
   view: yes

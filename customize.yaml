@@ -93,6 +93,9 @@ switch.kids_room1_switch:
 camera.amcrest_camera:
   friendly_name: Front Door
 
+media_player.mpd:
+  friendly_name: Home Audio
+
 # Alarm clock sensors
 sensor.time:
   hidden: true

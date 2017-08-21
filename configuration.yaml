@@ -66,18 +66,23 @@ zone 2:
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
  
-media_player 1:
+media_player:
   - platform: pandora
 
-media_player 2:
   - platform: webostv
     host: 192.168.88.18
     name: Living Room TV
 
-media_player 3:
   - platform: vlc
     name: homepi_audio
     arguments: '--alsa-audio-device=hw:0,0'
+
+  - platform: snapcast
+    host: 127.0.0.1
+
+  - platform: mpd
+    host: 127.0.0.1
+    location: Multi-Room Controller
 
 mqtt:
   broker: !secret mqtt_broker
@@ -89,7 +94,6 @@ device_tracker:
   - platform: owntracks
     waypoints: True
 
-device_tracker 1:
   - platform: nmap_tracker
     hosts: 192.168.88.1/24
     home_inteval: 5
@@ -99,7 +103,6 @@ device_tracker 1:
      - 192.168.88.1
      - 192.168.88.32
 
-device_tracker 2:
   - platform: mikrotik
     host: !secret mikrotik_host
     username: !secret mikrotik_user
@@ -117,12 +120,11 @@ zwave:
       polling_intensity: 1
   
 notify:
-  - name: homepi.rd3s.com
-    platform: html5
+  - platform: html5
+    name: homepi.rd3s.com
     gcm_api_key: !secret html5_gcm_api
     gcm_sender_id: !secret html5_gcm_sender
 
-notify 1:
   - platform: webostv
     host: 192.168.88.18
     name: livingroom_tv
@@ -139,4 +141,5 @@ amcrest:
     stream_source: rtsp
     resolution: low
     scan_interval: 5
+
 
