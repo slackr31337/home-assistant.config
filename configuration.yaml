@@ -38,8 +38,7 @@ panel_iframe:
   music:  
     title: 'Music'  
     icon: 'mdi:music-box-outline'  
-    url: 'https://homepi.rd3s.com:5443/mobile/index.html#/playback'
-#    url: 'https://homepi.rd3s.com/music_player/index.html#/playback'  
+    url: !secret music_url
 
 recorder:
   purge_days: 30
@@ -86,7 +85,7 @@ media_player:
   - platform: pandora
 
   - platform: webostv
-    host: 192.168.88.18
+    host: !secret ip_livingroom_tv 
     name: Living Room TV
 
   - platform: vlc
@@ -146,7 +145,7 @@ notify:
     gcm_sender_id: !secret html5_gcm_sender
 
   - platform: webostv
-    host: 192.168.88.18
+    host: !secret ip_livingroom_tv
     name: livingroom_tv
 
   - name: gmail
@@ -160,6 +159,7 @@ notify:
     password: !secret gmail_pass
     recipient:
       - !secret gmail
+      - !secret phone_mail
     sender_name: Home Assistant
 
 google:
@@ -168,7 +168,7 @@ google:
   track_new_calendar: false
 
 amcrest:
-  - host: 192.168.88.20
+  - host: !secret ip_camera1
     username: !secret amcrest_user
     password: !secret amcrest_pass
     stream_source: rtsp
