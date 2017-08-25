@@ -1,0 +1,60 @@
+- alias: 'Trigger alarm while armed away'
+  trigger:
+    - platform: state
+      entity_id: 
+        - sensor.family_room_motion_sensor
+        - sensor.front_hall_motion_sensor
+        - sensor.garage_inside_motion_sensor
+        - sensor.kids_room1_motion_sensor
+      to: 'Motion'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_away
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm
+
+- alias: 'Trigger alarm while armed home'
+  trigger:
+    - platform: state
+      entity_id: sensor.garage_inside_motion_sensor
+      to: 'Motion'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: armed_home
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm
+
+- alias: Alarm Triggered
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    to: 'triggered'
+  action:
+    - service: script.turn_on
+      entity_id: script.light_flash
+    - service: notify.gmail
+      data:
+        message: 'Home Alarm Triggered {{now().strftime("%Y%m%d-%H%M%S")}}'
+    - service: notify.homepird3scom
+      data:
+        message: 'Home Alarm Triggered {{now().strftime("%Y%m%d-%H%M%S")}}'
+
+- alias: Alarm Disarmed
+  hide_entity: True
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    to: 'disarmed'
+  action:
+    - service: script.turn_off
+      entity_id: script.light_loop
+    - service: notify.gmail
+      data:
+        message: 'Home Alarm Reset {{now().strftime("%Y%m%d-%H%M%S")}}'
+
+

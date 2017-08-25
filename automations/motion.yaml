@@ -16,11 +16,12 @@
     data:
         brightness: "{{ states('sensor.time_brightness')|int }}"
 
-
-- alias: Unexpected Motion - Garage
+- alias: Unexpected Motion
   trigger:
     platform: state
-    entity_id: sensor.garage_inside_motion_sensor
+    entity_id: sensor.garage_inside_motion_sensor 
+      #- sensor.front_hall_motion_sensor
+      #- sensor.family_room_motion_sensor
     to: 'Motion'
   condition:
     - condition: state
@@ -32,5 +33,5 @@
   action:
     service: notify.homepird3scom_html5_robert_phone
     data:
-      message: "Unexpected Motion! Garage at {{ state(sensor.time) }}"
+      message: 'Unexpected Motion! {{ trigger.to_state.attributes.friendly_name }}'
 

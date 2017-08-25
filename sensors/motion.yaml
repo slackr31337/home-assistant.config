@@ -1,7 +1,7 @@
 - platform: template
   sensors:
     front_hall_motion_sensor:
-      friendly_name: Front Hall Motion Sensor
+      friendly_name: Front Hall
       value_template: >-
         {%- if is_state('sensor.front_door_motion_light_burglar', '3') -%}
           Tamper
@@ -15,7 +15,7 @@
           Unknown
         {%- endif -%}
     family_room_motion_sensor:
-      friendly_name: Family Room Motion Sensor
+      friendly_name: Family Room
       value_template: >-
         {%- if is_state('sensor.patio_plug_burglar', '3') -%}
           Tamper
@@ -29,7 +29,7 @@
           Unknown
         {%- endif -%}
     kids_room1_motion_sensor:
-      friendly_name: Brayden's Room Motion Sensor
+      friendly_name: Brayden's Room
       value_template: >-
         {%- if is_state('sensor.kids_room1_burglar', '3') -%}
           Tamper
@@ -42,8 +42,22 @@
         {%- else -%}
           Unknown
         {%- endif -%}
+    kids_room2_motion_sensor:
+      friendly_name: Ana's Room
+      value_template: >-
+        {%- if is_state('sensor.kids_room2_burglar', '3') -%}
+          Tamper
+        {%- elif is_state('sensor.kids_room2_burglar', '8') -%}
+          Motion
+        {%- elif is_state('sensor.kids_room2_burglar', '0') -%}
+          OK
+        {%- elif is_state('sensor.kids_room2_burglar', '254') -%}
+          OK
+        {%- else -%}
+          OK
+        {%- endif -%}
     garage_inside_motion_sensor:
-      friendly_name: Garage Inside Motion Sensor
+      friendly_name: Garage Inside
       value_template: >-
         {%- if is_state('sensor.garage_inside_motion_burglar', '3') -%}
           Tamper
@@ -56,4 +70,12 @@
         {%- else -%}
           Unknown
         {%- endif -%}
-
+    template_last_motion:
+        friendly_name: 'Last Motion'
+        value_template: >
+          {%- set sensors = [states.sensor.garage_inside_motion_sensor, states.sensor.kids_room1_motion_sensor, states.sensor.family_room_motion_sensor, states.sensor.front_hall_motion_sensor] %}
+          {% for sensor in sensors %}
+            {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
+              {{ sensor.name }}
+            {% endif %}
+          {% endfor %}

@@ -2,11 +2,10 @@
       image: /local/custom_ui/floorplan/floorplan.svg
       stylesheet: /local/custom_ui/floorplan/floorplan.css
       
-      # These options are optional
-      # warnings:                  # enable warnings (to find out why things might ot be working correctly)
-      # pan_zoom:                  # enable experimental panning / zooming
-      # hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
-      # date_format: DD-MMM-YYYY   # Date format to use in hover-over text
+      #warnings:
+      #pan_zoom:
+      #hide_app_toolbar:
+      date_format: DD-MMM-YYYY
       
       last_motion_entity: sensor.template_last_motion
       last_motion_class: last-motion
@@ -31,11 +30,9 @@
 
         - name: Lights
           entities:
-             - light.hallway
-             - light.living_room
-             - light.patio
-             - group.kitchen_lights
-             - group.living_room_lights
+             - switch.front_outside_lights_switch
+             - light.back_patio_light_level
+             - group.house_lights
           states:
             - state: 'on'
               class: 'light-on'
@@ -94,7 +91,7 @@
 
         - name: Cameras
           entities:
-            - camera.hallway
+            - camera.amcrest_camera
             - camera.driveway
             - camera.front_door
             - camera.backyard

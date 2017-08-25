@@ -1,6 +1,7 @@
 audio_player:
   name: Audio Player
   options:
+    - Music
     - Living Room TV
     - Pandora
     - HomePi
@@ -9,7 +10,7 @@ audio_player:
   icon: mdi:cast
 
 house_mode:
-  name: House Mode
+  name: Set House Mode
   options:
     - "Occupied"
     - "Away"

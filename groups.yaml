@@ -34,6 +34,7 @@ audio_view:
   entities:
     - group.media_audio
     - media_player.mpd
+    #- media_player.gstreamer
     - media_player.snapcast_client_b827eb6f00e5
     - media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
 
@@ -73,6 +74,7 @@ calendar_items:
 house_mode:
    name: House Mode
    entities:
+     - alarm_control_panel.house_alarm
      - sensor.occupancy_house
      - sensor.quiet_time
      - input_select.house_mode
@@ -80,8 +82,12 @@ house_mode:
 occupancy:
    name: Occupancy
    entities:
+     - sensor.template_last_motion
+     - sensor.dining_room_motion_sensor
+     - sensor.living_room_motion_sensor
      - sensor.family_room_motion_sensor
      - sensor.kids_room1_motion_sensor
+     - sensor.kids_room2_motion_sensor
      - sensor.front_hall_motion_sensor
      - sensor.garage_inside_motion_sensor
 
@@ -216,6 +222,5 @@ scripts:
   entities:
     - script.good_night
     - script.home_away
-
 
 

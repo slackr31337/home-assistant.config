@@ -1,9 +1,9 @@
   - name: Morning Lights
     entities:
-      light.kitchen_table_light_level:
-        state: on
-      light.kitchen_light_level:
-        state: on
       light.stairs_light_level:
         state: on
-
+        brightness: 150 
+      #light.kitchen_table_light_level:
+      #  state: on
+      #light.kitchen_light_level:
+      #  state: on

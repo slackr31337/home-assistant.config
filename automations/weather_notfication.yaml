@@ -23,4 +23,4 @@
   action:
   - service: notify.homepird3scom_html5_robert_phone
     data:
-      message: "The sun has set. Tonight: {{ states('sensor.pws_weather_1n') }} Tomorrow:{{ states('sensor.pws_weather_2d') }} Now: {{ states('sensor.pws_temp_f') }}°f "
+      message: "The sun has set. Tonight: {{ states('sensor.pws_weather_1n') }} Tomorrow: {{ states('sensor.pws_weather_2d') }} Now: {{ states('sensor.pws_temp_f') }}°f "

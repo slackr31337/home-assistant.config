@@ -119,6 +119,10 @@ input_boolean.alarm_clock_status:
   friendly_name: 'Activated'
   icon: mdi:alarm-check
 
+binary_sensor.floorplan:
+  custom_ui_state_card: floorplan
+  config: !include floorplan.yaml
+
 script.good_night:
   friendly_name: Good Night
   icon: mdi:sleep

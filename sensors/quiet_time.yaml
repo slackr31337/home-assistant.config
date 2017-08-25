@@ -1,7 +1,7 @@
   - platform: template
     sensors:
       quiet_time:
-        value_template: '{{ ( (states.binary_sensor.workday_sensor == "on" and (now().hour < 7 or now().hour >= 21)) or (now().hour < 8) or now().hour >= 22) }}'
+        value_template: '{{ ( (states.binary_sensor.workday_sensor == "on" and (now().hour < 7 or now().hour >= 20)) or (now().hour < 8) or now().hour >= 21) }}'
         friendly_name: 'Quiet Time'
         entity_id: sensor.time
 

@@ -11,7 +11,7 @@
       value_template: "{{ 'Online' if is_state('device_tracker.livingroomtv', 'home') else 'Offline' }}"
     anapc:
       friendly_name: 'Ana PC'
-      value_template: "{{ 'Online' if is_state('device_tracker.anapc', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.family01', 'home') else 'Offline' }}"
     thermostat_battery:
       friendly_name: 'Thermostat Battery'
       value_template: '{{ states.zwave.thermostat.attributes.battery_level }}'

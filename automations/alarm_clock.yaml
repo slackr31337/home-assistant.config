@@ -1,5 +1,4 @@
   - alias: 'Alarm Clock'
-    hide_entity: False
     trigger:
       platform: template
       value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'

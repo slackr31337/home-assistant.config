@@ -5,11 +5,8 @@ home_away:
       entity_id: scene.away_lights
     - service: media_player.turn_off
       data:
-        entity_id: media_player.pandora
-    #- service: media_player.turn_off
-    #  data:
-    #    entity_id: media_player.living_room_tv
+        entity_id: media_player.mpd
     - service: notify.homepird3scom_html5_robert_phone
       data:
-        message: 'House is set to away mode.'
+        message: 'Home Away Mode {{now().strftime("%Y%m%d-%H%M%S")}}'
         

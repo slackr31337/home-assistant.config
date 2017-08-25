@@ -17,7 +17,7 @@
       - station_id
       - weather_1d
       - weather_1n
-#      - weather_2d
+      - weather_2d
 #      - weather_2n
 #      - weather_3d
 #      - weather_3n

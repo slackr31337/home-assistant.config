@@ -32,6 +32,14 @@ binary_sensor: !include_dir_merge_list binary_sensors
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_slider: !include input_slider.yaml
+panel_custom: !include panel_custom.yaml
+
+panel_iframe:  
+  music:  
+    title: 'Music'  
+    icon: 'mdi:music-box-outline'  
+    url: 'https://homepi.rd3s.com:5443/mobile/index.html#/playback'
+#    url: 'https://homepi.rd3s.com/music_player/index.html#/playback'  
 
 recorder:
   purge_days: 30
@@ -45,6 +53,14 @@ recorder:
       - sun.sun
       - sensor.last_boot
       - sensor.date
+
+alarm_control_panel:
+  platform: manual
+  name: "House Alarm"
+  code: !secret alarm_code
+  pending_time: 60
+  trigger_time: 40
+  disarm_after_trigger: false
 
 tts:
   - platform: picotts
@@ -82,7 +98,11 @@ media_player:
 
   - platform: mpd
     host: 127.0.0.1
+    port: 6600
     location: Multi-Room Controller
+
+  - platform: gstreamer
+    pipeline: "audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo"
 
 mqtt:
   broker: !secret mqtt_broker
@@ -128,6 +148,19 @@ notify:
   - platform: webostv
     host: 192.168.88.18
     name: livingroom_tv
+
+  - name: gmail
+    platform: smtp
+    server: smtp.gmail.com
+    port: 587
+    timeout: 15
+    sender: !secret gmail
+    encryption: starttls
+    username: !secret gmail
+    password: !secret gmail_pass
+    recipient:
+      - !secret gmail
+    sender_name: Home Assistant
 
 google:
   client_id: !secret google_calendar_client_id
