@@ -20,6 +20,14 @@ calendar_view:
     - group.drive_time
     - group.alarm_clock
 
+light_view:
+  view: yes
+  icon: mdi:lightbulb
+  entities:
+    - group.house_lights
+    - group.outdoor_lights
+    - group.thermostat
+
 security_view:
   view: yes
   icon: mdi:security-home
@@ -37,14 +45,6 @@ audio_view:
     #- media_player.gstreamer
     - media_player.snapcast_client_b827eb6f00e5
     - media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
-
-device_view:
-  view: yes
-  icon: mdi:lightbulb
-  entities:
-    - group.house_lights
-    - group.outdoor_lights
-    - group.thermostat
 
 network_view:
   view: yes
@@ -68,6 +68,7 @@ calendar_items:
   entities:
     - sensor.date
     - binary_sensor.workday_sensor
+    - binary_sensor.workday_tomorrow
     - sensor.next_calendar_event
     - sensor.next_calendar_fb_event
 
@@ -94,7 +95,8 @@ occupancy:
 house_lights:
   name: Inside Lights
   entities:
-    - switch.front_door_motion_light_switch
+    - light.front_door_light_level
+    - light.dining_room_light_level
     - light.kitchen_light_level
     - light.kitchen_table_light_level
     - light.family_rm_level
@@ -163,13 +165,15 @@ media_roku:
 cameras:
   name: Cameras
   entities:
-    - camera.amcrest_camera
+    - camera.front_door
+    - camera.garage
 
 devices:
   name: Devices
   entities:
     - sensor.livingroomtv
     - sensor.anapc
+    - sensor.braydenpc
     - sensor.xboxone
     - sensor.xbox360
 

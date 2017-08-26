@@ -12,6 +12,9 @@
     anapc:
       friendly_name: 'Ana PC'
       value_template: "{{ 'Online' if is_state('device_tracker.family01', 'home') else 'Offline' }}"
+    braydenpc: 
+      friendly_name: 'Brayden PC'
+      value_template: "{{ 'Online' if is_state('device_tracker.braydenpc', 'home') else 'Offline' }}"
     thermostat_battery:
       friendly_name: 'Thermostat Battery'
       value_template: '{{ states.zwave.thermostat.attributes.battery_level }}'

@@ -114,13 +114,13 @@ device_tracker:
     waypoints: True
 
   - platform: nmap_tracker
-    hosts: 192.168.88.1/24
+    hosts: !secret ip_subnet
     home_inteval: 5
     interval_seconds: 120
     consider_home: 240
     exclude:
-     - 192.168.88.1
-     - 192.168.88.32
+     - !secret ip_gateway
+     - !secret ip_hass
 
   - platform: mikrotik
     host: !secret mikrotik_host
@@ -169,10 +169,23 @@ google:
 
 amcrest:
   - host: !secret ip_camera1
+    name: front_door
     username: !secret amcrest_user
     password: !secret amcrest_pass
     stream_source: rtsp
     resolution: low
-    scan_interval: 5
-
+    scan_interval: 10
+  - host: !secret ip_camera2
+    name: garage
+    username: !secret amcrest_user
+    password: !secret amcrest_pass2
+    stream_source: rtsp
+    resolution: low
+    scan_interval: 10
+#  - host: !secret ip_camera3
+#    username: !secret amcrest_user
+#    password: !secret amcrest_pass2
+#    stream_source: rtsp
+#    resolution: low
+#    scan_interval: 10
 
