@@ -65,19 +65,30 @@ tts:
   - platform: picotts
 
 zone:
-  name: !secret zone_name
-  latitude: !secret zone_latitude
-  longitude: !secret zone_longitude
-  icon: mdi:home
-  radius: 200
+  - name: !secret zone_name
+    latitude: !secret zone_latitude
+    longitude: !secret zone_longitude
+    icon: mdi:home
+    radius: 200
 
-zone 2:
-  name: !secret zone2_name
-  latitude: !secret zone2_latitude
-  longitude: !secret zone2_longitude
-  icon: mdi:briefcase
-  radius: 200
- 
+  - name: !secret zone2_name
+    latitude: !secret zone2_latitude
+    longitude: !secret zone2_longitude
+    icon: mdi:briefcase
+    radius: 200
+
+  - name: !secret zone4_name
+    latitude: !secret zone4_latitude
+    longitude: !secret zone4_longitude
+    icon: mdi:car
+    radius: 50
+
+  - name: !secret zone5_name
+    latitude: !secret zone5_latitude
+    longitude: !secret zone5_longitude
+    icon: mdi:car
+    radius: 50
+
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
  

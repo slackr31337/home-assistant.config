@@ -199,8 +199,10 @@ system:
 drive_time:
   name: Drive Time
   entities:
-    - sensor.home_to_work
     - sensor.robs_eta_to_home
+    - sensor.home_to_work
+    - sensor.work_to_i90
+    - sensor.work_to_transit_rd
 
 automation_override:
   name: Automation Override
