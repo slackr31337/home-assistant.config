@@ -1,7 +1,11 @@
 wake_up:
   sequence:
-    - service: scene.turn_on
-      entity_id: scene.morning_lights
+#    - service: scene.turn_on
+#      entity_id: scene.morning_lights
+    - service: light.turn_on
+      data_template:
+        entity_id: light.stairs_light_level
+        brightness: "{{ states.sensor.time_brightness.state|int }}"
     - service: notify.homepird3scom_html5_robert_phone
       data:
         message: 'Wake up alarm!'

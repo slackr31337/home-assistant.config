@@ -1,7 +1,7 @@
 - alias: 'Speak current time and tempature'
   trigger:
    - platform: time
-     minutes: '15'
+     minutes: '00'
      seconds: '00'
   condition:
    - condition: state
@@ -14,7 +14,7 @@
   - service: tts.picotts_say
     entity_id: media_player.homepi_audio
     data:
-      message: >
-        The time is now {{now().strftime("%H:%M")}}
+      message: 'The time is now {{now().strftime("%H %M")}}'
+
 #        and the tempature is {{ sensor.pws_temp_f }} degrees.
 

@@ -4,6 +4,7 @@
       entity_id: 
         - sensor.family_room_motion_sensor
         - sensor.front_hall_motion_sensor
+        - sensor.dining_room_motion_sensor
         - sensor.garage_inside_motion_sensor
         - sensor.kids_room1_motion_sensor
       to: 'Motion'

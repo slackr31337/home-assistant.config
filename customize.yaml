@@ -83,6 +83,10 @@ switch.livingroom_plug1_switch:
   friendly_name: Living Room Lamp
   icon: 'mdi:lamp'
 
+switch.half_bathroom_switch:
+  friendly_name: Half Bathroom Light
+  icon: 'mdi:lamp'
+
 switch.garage_inside_motion_switch:
   friendly_name: Garage Inside Light 
   icon: 'mdi:lightbulb'

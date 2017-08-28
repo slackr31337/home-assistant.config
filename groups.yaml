@@ -43,8 +43,8 @@ audio_view:
     - group.media_audio
     - media_player.mpd
     #- media_player.gstreamer
-    - media_player.snapcast_client_b827eb6f00e5
-    - media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
+    #- media_player.snapcast_client_b827eb6f00e5
+    #- media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
 
 network_view:
   view: yes
@@ -84,12 +84,13 @@ occupancy:
    name: Occupancy
    entities:
      - sensor.template_last_motion
+     - sensor.front_hall_motion_sensor
      - sensor.dining_room_motion_sensor
      - sensor.living_room_motion_sensor
      - sensor.family_room_motion_sensor
+     - sensor.half_bath_motion_sensor
      - sensor.kids_room1_motion_sensor
      - sensor.kids_room2_motion_sensor
-     - sensor.front_hall_motion_sensor
      - sensor.garage_inside_motion_sensor
 
 house_lights:
@@ -100,6 +101,7 @@ house_lights:
     - light.kitchen_light_level
     - light.kitchen_table_light_level
     - light.family_rm_level
+    - switch.half_bathroom_switch
     - switch.livingroom_plug1_switch
     - light.stairs_light_level
     - switch.kids_room1_switch
@@ -202,7 +204,9 @@ drive_time:
     - sensor.robs_eta_to_home
     - sensor.home_to_work
     - sensor.work_to_i90
+    - sensor.i90_to_home
     - sensor.work_to_transit_rd
+    - sensor.transit_rd_to_home
 
 automation_override:
   name: Automation Override
@@ -228,5 +232,5 @@ scripts:
   entities:
     - script.good_night
     - script.home_away
-
+    - script.kitchen_lights
 

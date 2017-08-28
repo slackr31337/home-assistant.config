@@ -17,8 +17,19 @@
   destination: I90
 
 - platform: google_travel_time
+  name: I90 to Home
+  api_key: !secret google_api
+  origin: I90
+  destination: Home
+
+- platform: google_travel_time
   name: Work to Transit Rd
   api_key: !secret google_api
   origin: I-Evolve
   destination: Transit and Maple
 
+- platform: google_travel_time
+  name: Transit Rd to Home
+  api_key: !secret google_api
+  origin: Transit and Maple
+  destination: Home
