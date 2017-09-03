@@ -1,3 +1,6 @@
+sensor.ssl_certificate_expiry:
+  friendly_name: SSL Expires
+
 sensor.thermostat_temperature:
   friendly_name: Inside Temperature
 sensor.pws_temp_f:

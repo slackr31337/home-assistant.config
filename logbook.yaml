@@ -20,3 +20,4 @@ include:
     - light
     - notify
     - script
+    - alarm_control_panel

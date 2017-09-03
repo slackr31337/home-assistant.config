@@ -1,10 +1,10 @@
 disable_current_time_temp_notification:
   name: Disable Current Time and Temp Notification
-  initial: off
+  initial: on
   icon: mdi:thermometer
 disable_morning_notification:
   name: Disable Morning Notification
-  initial: off
+  initial: on
   icon: mdi:weather-sunset-up
 disable_afternoon_notification:
   name: Disable Afternoon Notification
@@ -20,7 +20,7 @@ disable_device_tampering_notification:
   icon: mdi:shield-outline
 disable_media_player_light_control:
   name: Disable Media Player Light Control
-  initial: off
+  initial: on
   icon: mdi:play-pause
 disable_auto_lights:
   name: Disable Auto Lights

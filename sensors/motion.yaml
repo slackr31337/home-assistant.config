@@ -8,9 +8,9 @@
         {%- elif is_state('sensor.dining_room_light_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.dining_room_light_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.dining_room_light_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
           Unknown
         {%- endif -%}
@@ -22,9 +22,9 @@
         {%- elif is_state('sensor.half_bathroom_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.half_bathroom_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.half_bathroom_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
           Unknown
         {%- endif -%}
@@ -36,9 +36,9 @@
         {%- elif is_state('sensor.front_door_light_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.front_door_light_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.front_door_light_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
           Unknown
         {%- endif -%}
@@ -50,9 +50,9 @@
         {%- elif is_state('sensor.patio_plug_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.patio_plug_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.patio_plug_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
           Unknown
         {%- endif -%}
@@ -64,9 +64,9 @@
         {%- elif is_state('sensor.kids_room1_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.kids_room1_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.kids_room1_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
           Unknown
         {%- endif -%}
@@ -78,11 +78,11 @@
         {%- elif is_state('sensor.kids_room2_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.kids_room2_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.kids_room2_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
-          OK
+          Ready
         {%- endif -%}
     garage_inside_motion_sensor:
       friendly_name: Garage Inside
@@ -92,9 +92,9 @@
         {%- elif is_state('sensor.garage_inside_motion_burglar', '8') -%}
           Motion
         {%- elif is_state('sensor.garage_inside_motion_burglar', '0') -%}
-          OK
+          Ready
         {%- elif is_state('sensor.garage_inside_motion_burglar', '254') -%}
-          OK
+          Idle
         {%- else -%}
           Unknown
         {%- endif -%}

@@ -1,0 +1,16 @@
+- alias: 'House Night Time Mode'
+  trigger:
+    platform: time
+    at: '11:05:00'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_house
+      state: 'No'
+    - condition: state
+      entity_id: binary_sensor.workday_tomorrow
+      state: 'on'
+  action:
+    service: script.turn_on
+    entity_id: script.good_night
+
+

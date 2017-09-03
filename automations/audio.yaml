@@ -11,7 +11,7 @@
         entity_id: >
           {% if is_state("input_select.audio_player", "Living Room TV") %}
             media_player.living_room_tv
-          {% elif is_state("input_select.audio_player", "Music") %}
+          {% elif is_state("input_select.audio_player", "Home Audio") %}
             media_player.mpd
           {% elif is_state("input_select.audio_player", "Pandora") %}
             media_player.pandora

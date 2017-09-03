@@ -143,7 +143,7 @@ zwave:
   config_path: /srv/homeassistant/src/open-zwave-control-panel/config
   new_entity_ids: true
   polling_interval: 30000
-#  device_config: !include zwave_device_config.yaml
+  device_config: !include zwave_device_config.yaml
  
 notify:
   - platform: html5
@@ -181,14 +181,14 @@ amcrest:
     password: !secret amcrest_pass
     stream_source: rtsp
     resolution: low
-    scan_interval: 10
+    #scan_interval: 10
   - host: !secret ip_camera2
     name: garage
     username: !secret amcrest_user
     password: !secret amcrest_pass2
-    stream_source: rtsp
-    resolution: low
-    scan_interval: 10
+    #stream_source: rtsp
+    #resolution: low
+    #scan_interval: 10
 #  - host: !secret ip_camera3
 #    username: !secret amcrest_user
 #    password: !secret amcrest_pass2

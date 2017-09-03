@@ -1,94 +1,15 @@
-2017-08-27 22:17:47 WARNING (MainThread) [homeassistant.setup] Setup of sensor is taking over 10 seconds.
-2017-08-27 22:17:47 WARNING (MainThread) [homeassistant.setup] Setup of notify is taking over 10 seconds.
-2017-08-27 22:17:48 WARNING (MainThread) [homeassistant.setup] Setup of binary_sensor is taking over 10 seconds.
-2017-08-27 22:17:48 WARNING (MainThread) [homeassistant.setup] Setup of media_player is taking over 10 seconds.
-2017-08-27 22:17:51 WARNING (MainThread) [homeassistant.setup] Setup of device_tracker is taking over 10 seconds.
-2017-08-27 22:17:52 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='192.168.88.28', port=80): Read timed out. (read timeout=3.0)",)': /cgi-bin/magicBox.cgi?action=getSerialNo
-2017-08-27 22:17:55 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='192.168.88.28', port=80): Read timed out. (read timeout=3.0)",)': /cgi-bin/magicBox.cgi?action=getSerialNo
-2017-08-27 22:17:57 WARNING (MainThread) [homeassistant.setup] Setup of amcrest is taking over 10 seconds.
-2017-08-27 22:17:58 WARNING (Thread-12) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='192.168.88.28', port=80): Read timed out. (read timeout=3.0)",)': /cgi-bin/magicBox.cgi?action=getSerialNo
-2017-08-27 22:18:02 ERROR (MainThread) [homeassistant.setup] Error during setup of component amcrest
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/lib/python3.4/http/client.py", line 1172, in getresponse
-    response.begin()
-  File "/usr/lib/python3.4/http/client.py", line 351, in begin
-    version, status, reason = self._read_status()
-  File "/usr/lib/python3.4/http/client.py", line 313, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/lib/python3.4/socket.py", line 371, in readinto
-    return self._sock.recv_into(b)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
-    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='192.168.88.28', port=80): Read timed out. (read timeout=3.0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='192.168.88.28', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSerialNo (Caused by ReadTimeoutError("HTTPConnectionPool(host='192.168.88.28', port=80): Read timed out. (read timeout=3.0)",))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/setup.py", line 194, in _async_setup_component
-    component.setup, hass, processed_config)
-  File "/usr/lib/python3.4/asyncio/futures.py", line 388, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.4/asyncio/tasks.py", line 286, in _wakeup
-    value = future.result()
-  File "/usr/lib/python3.4/asyncio/futures.py", line 277, in result
-    raise self._exception
-  File "/usr/lib/python3.4/concurrent/futures/thread.py", line 54, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/homeassistant/components/amcrest.py", line 98, in setup
-    device.get(CONF_PASSWORD)).camera
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/amcrest/__init__.py", line 32, in __init__
-    timeout_protocol=timeout_protocol
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/amcrest/http.py", line 68, in __init__
-    self._set_name()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/amcrest/http.py", line 102, in _set_name
-    self._serial = self.serial_number
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/amcrest/system.py", line 93, in serial_number
-    'magicBox.cgi?action=getSerialNo'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.4/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='192.168.88.28', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSerialNo (Caused by ReadTimeoutError("HTTPConnectionPool(host='192.168.88.28', port=80): Read timed out. (read timeout=3.0)",))
-2017-08-27 22:18:02 ERROR (MainThread) [homeassistant.setup] Unable to setup dependencies of camera.amcrest. Setup failed for dependencies: amcrest
-2017-08-27 22:18:02 ERROR (MainThread) [homeassistant.setup] Unable to prepare setup for platform camera.amcrest: Could not setup all dependencies.
-2017-08-27 22:18:07 WARNING (MainThread) [homeassistant.components.sensor.template] Could not render template Thermostat Battery, the state is unknown.
-2017-08-27 22:18:11 WARNING (MainThread) [homeassistant.helpers.condition] Value cannot be processed as a number: 
-2017-08-27 22:18:31 WARNING (Thread-6) [netdisco.ssdp] Found malformed XML at http://192.168.88.18:9080: status=ok
-2017-08-27 22:18:37 WARNING (Thread-5) [homeassistant.components.zwave] zwave not ready after 30 seconds, continuing anyway
+2017-09-03 09:37:11 WARNING (MainThread) [homeassistant.setup] Setup of notify is taking over 10 seconds.
+2017-09-03 09:37:12 WARNING (MainThread) [homeassistant.setup] Setup of binary_sensor is taking over 10 seconds.
+2017-09-03 09:37:12 WARNING (MainThread) [homeassistant.setup] Setup of media_player is taking over 10 seconds.
+2017-09-03 09:37:14 WARNING (MainThread) [homeassistant.setup] Setup of device_tracker is taking over 10 seconds.
+2017-09-03 09:37:30 WARNING (MainThread) [homeassistant.components.sensor.template] Could not render template Thermostat Battery, the state is unknown.
+2017-09-03 09:37:32 WARNING (MainThread) [homeassistant.helpers.condition] Value cannot be processed as a number: 
+2017-09-03 09:37:34 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-09-03 09:37:34 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-09-03 09:37:34 WARNING (Thread-4) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-09-03 09:37:37 WARNING (Thread-2) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ReadTimeoutError("HTTPConnectionPool(host='10.40.0.11', port=80): Read timed out. (read timeout=3.0)",)': /cgi-bin/snapshot.cgi?channel=0
+2017-09-03 09:38:01 WARNING (Thread-8) [homeassistant.components.zwave] zwave not ready after 30 seconds, continuing anyway
+2017-09-03 09:38:18 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-09-03 09:38:18 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-09-03 09:38:18 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1
+2017-09-03 09:38:18 WARNING (Thread-3) [requests.packages.urllib3.connectionpool] Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProtocolError('Connection aborted.', BadStatusLine("''",))': /cgi-bin/snapshot.cgi?channel=1

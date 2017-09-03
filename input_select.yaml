@@ -1,12 +1,12 @@
 audio_player:
   name: Audio Player
   options:
-    - Music
+    - Home Audio
     - Living Room TV
     - Pandora
     - HomePi
     - "None"
-  initial: "None"
+  initial: "Home Audio"
   icon: mdi:cast
 
 house_mode:

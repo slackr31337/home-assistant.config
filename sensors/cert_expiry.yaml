@@ -1,0 +1,2 @@
+  - platform: cert_expiry
+    host: homepi.rd3s.com
