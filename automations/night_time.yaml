@@ -1,16 +1,49 @@
-- alias: 'House Night Time Mode'
+- alias: 'House Night Auto Lights Off'
   trigger:
     platform: time
     at: '11:05:00'
   condition:
     - condition: state
       entity_id: sensor.occupancy_house
-      state: 'No'
+      state: 'Yes'
     - condition: state
       entity_id: binary_sensor.workday_tomorrow
       state: 'on'
   action:
     service: script.turn_on
     entity_id: script.good_night
+
+- alias: 'House Night TV Auto Off'
+  trigger:
+    platform: time
+    at: '11:15:00'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_house
+      state: 'Yes'
+    - condition: state
+      entity_id: binary_sensor.workday_tomorrow
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.disable_device_auto_off
+      state: 'off'
+  action:
+    service: script.turn_on
+    entity_id: script.devices_off
+
+- alias: 'House Morning Auto Off'
+  trigger:
+    platform: time
+    at: '00:15:00'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_house
+      state: 'Yes'
+    - condition: state
+      entity_id: input_boolean.disable_device_auto_off
+      state: 'off'
+  action:
+    service: script.turn_on
+    entity_id: script.devices_off
 
 

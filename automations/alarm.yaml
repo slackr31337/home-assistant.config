@@ -51,11 +51,35 @@
     platform: state
     entity_id: alarm_control_panel.house_alarm
     to: 'disarmed'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_robert
+      state: 'No'
   action:
     - service: script.turn_off
-      entity_id: script.light_loop
+      entity_id: script.light_flash
     - service: notify.gmail
       data:
         message: 'Home Alarm Disarmed {{now().strftime("%Y-%m-%d %H:%M:%S")}}'
+
+- alias: Home Disarm
+  hide_entity: True
+  trigger:
+    platform: template
+    value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_robert
+      state: 'Yes'
+    - condition: state
+      entity_id: alarm_control_panel.house_alarm
+      state: armed_home
+  action:
+    - service: alarm_control_panel.alarm_disarm
+      entity_id: alarm_control_panel.house_alarm
+      data:
+        code: !secret alarm_code 
+
+
 
 

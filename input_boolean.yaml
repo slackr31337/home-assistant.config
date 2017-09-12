@@ -2,6 +2,10 @@ disable_current_time_temp_notification:
   name: Disable Current Time and Temp Notification
   initial: on
   icon: mdi:thermometer
+disable_device_auto_off:
+  name: Disable TV Auto Off
+  initial: off
+  icon: mdi:television-classic
 disable_morning_notification:
   name: Disable Morning Notification
   initial: on

@@ -9,8 +9,6 @@ default_view:
     - device_tracker.ana_phone
     - device_tracker.brayden_3ds
     - group.weather
-    - group.media_tv
-    - media_player.roku2__brayden
 
 calendar_view:
   view: yes
@@ -42,6 +40,8 @@ audio_view:
   entities:
     - group.media_audio
     - media_player.mpd
+    - group.media_tv
+    - media_player.roku2__brayden
     #- media_player.gstreamer
     #- media_player.snapcast_client_b827eb6f00e5
     #- media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
@@ -78,7 +78,7 @@ house_mode:
      - alarm_control_panel.house_alarm
      - sensor.occupancy_house
      - sensor.quiet_time
-     - input_select.house_mode
+#     - input_select.house_mode
 
 occupancy:
    name: Occupancy
@@ -168,6 +168,7 @@ cameras:
   entities:
     - camera.front_door
     - camera.garage
+    - camera.back_yard
 
 devices:
   name: Devices
@@ -212,6 +213,7 @@ automation_override:
   name: Automation Override
   entities:
     - input_boolean.disable_auto_lights
+    - input_boolean.disable_device_auto_off
     - input_boolean.disable_media_player_light_control
     - input_boolean.disable_current_time_temp_notification
     - input_boolean.disable_morning_notification

@@ -3,21 +3,24 @@ include:
     - device_tracker.robert_phone
     - device_tracker.sarah_phone
     - device_tracker.ana_phone
-    - sensor.occupancy_house
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
     - sensor.livingroomtv
     - sensor.xboxone
+    - sensor.anapc
+    - sensor.braydenpc
     - sensor.weather_summary
     - sensor.weather_temperature
     - sensor.weather_precip_intensity
     - sensor.weather_humidity
-    - sensor.garage_inside_motion_sensor
+    - sensor.occupancy_house
+#    - sensor.garage_inside_motion_sensor
   domains:
     - sun
-    - switch
-    - light
     - notify
-    - script
     - alarm_control_panel
+#    - switch
+#    - light
+#    - script
+

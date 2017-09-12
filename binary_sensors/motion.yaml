@@ -1,0 +1,35 @@
+- platform: template
+  sensors:
+    front_hallway:
+      value_template: >-
+        {%- if is_state('sensor.front_door_light_burglar', '8') -%}
+          on
+        {%- else -%}
+          off
+        {%- endif -%}
+    family_room:
+      value_template: >-
+        {%- if is_state('sensor.patio_plug_burglar', '8') -%}
+          on
+        {%- else -%}
+          off
+        {%- endif -%}
+    half_bathroom:
+      value_template: >-
+        {%- if is_state('sensor.half_bathroom_burglar', '8') -%}
+          on
+        {%- else -%}
+          off
+        {%- endif -%}
+    garage:
+      value_template: >-
+        {%- if is_state('sensor.garage_inside_motion_burglar', '8') -%}
+          on
+        {%- else -%}
+          off
+        {%- endif -%}
+
+
+
+
+

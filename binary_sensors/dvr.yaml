@@ -1,0 +1,10 @@
+- platform: template
+  sensors:
+    dvr:
+      value_template: >
+        {% if is_state('device_tracker.front_door1', 'home') %}
+          on
+        {% else %}
+          off
+        {% endif %}
+

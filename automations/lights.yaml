@@ -38,11 +38,12 @@
       entity_id: input_boolean.disable_auto_lights
       state: 'off'
   trigger:
-    - platform: time
-      at: '05:11:20'
     - platform: sun
       event: sunset
-      offset: "00:12:34"
+      offset: "-00:12:00"
+    - platform: sun
+      event: sunrise
+      offset: "-01:12:34"
   action:
     service: switch.turn_on
     entity_id: switch.front_outside_lights_switch

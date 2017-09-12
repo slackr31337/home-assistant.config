@@ -1,28 +1,36 @@
       name: Home
       image: /local/custom_ui/floorplan/floorplan.svg
       stylesheet: /local/custom_ui/floorplan/floorplan.css
-      
       #warnings:
       #pan_zoom:
       #hide_app_toolbar:
       date_format: DD-MMM-YYYY
-      
+      track_duration: 10 
+
       last_motion_entity: sensor.template_last_motion
       last_motion_class: last-motion
 
       groups:
+        - name: Last Motion
+          entities:
+             - sensor.template_last_motion
+
+        - name: Media Players
+          entities:
+             - media_player.kitchen
+             - media_player.mpd
+             - media_player.garage
 
         - name: Sensors
           entities:
-             -  sensor.dark_sky_temperature
+             -  sensor.pws_temp_f
           #text_template: '${entity.state ? entity.state : "unknown"}'
-          # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  
           class_template: '
             var temp = parseFloat(entity.state.replace("°", ""));
-            if (temp < 10)
+            if (temp < 40)
               return "temp-low";
-            else if (temp < 30)
+            else if (temp < 60)
               return "temp-medium";
             else
               return "temp-high";
@@ -53,8 +61,8 @@
 
         - name: NVR
           entities:
-             - binary_sensor.blue_iris_nvr
-          text_template: '${(entity.state === "on") ? "online" : "offline"}'
+             - device_tracker.front_door1
+          text_template: '${(entity.state === "home") ? "online" : "offline"}'
           states:
             - state: 'off'
               class: 'danger-text'
@@ -63,7 +71,7 @@
 
         - name: Alarm Panel
           entities:
-             - alarm_control_panel.alarm
+             - alarm_control_panel.house_alarm
           states:
             - state: 'armed_away'
               class: 'alarm-armed'
@@ -72,29 +80,29 @@
             - state: 'disarmed'
               class: 'alarm-disarmed'
 
-        - name: Binary sensors
+        - name: Motion sensors
           entities:
-            - binary_sensor.front_hallway
-            - binary_sensor.kitchen
-            - binary_sensor.master_bedroom
-            - binary_sensor.theatre_room
+             - sensor.dining_room_motion_sensor
+             - sensor.half_bath_motion_sensor
+             - sensor.front_hall_motion_sensor
+             - sensor.family_room_motion_sensor
+             - sensor.garage_inside_motion_sensor
+             - sensor.kids_room1_motion_sensor
           states:
-            - state: 'off'
+            - state: 'Ready'
               class: 'info-background'
-            - state: 'on'
+            - state: 'Idle'
+              class: 'info-background'
+            - state: 'Motion'
               class: 'warning-background'
-          state_transitions:
-            - name: On to off
-              from_state: 'on'
-              to_state: 'off'
-              duration: 10
+            - state: 'Unknown'
+              class: 'warning-background'
 
         - name: Cameras
           entities:
-            - camera.amcrest_camera
-            - camera.driveway
+            - camera.garage
             - camera.front_door
-            - camera.backyard
+            - camera.back_yard
           states:
             - state: 'idle'
               class: 'camera-idle'
