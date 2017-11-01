@@ -1,0 +1,21 @@
+quiet_off:
+  alias: "Quiet Time Off"
+  sequence:
+    - service: zwave.set_config_parameter
+      data_template: {
+        "node_id": 11,
+        "parameter": 3,
+        "value": 'Occupancy'
+        }
+    - service: zwave.set_config_parameter
+      data_template: {
+        "node_id": 12,
+        "parameter": 3,
+        "value": 'Occupancy'
+        }
+    - service: zwave.set_config_parameter
+      data_template: {
+        "node_id": 18,
+        "parameter": 3,
+        "value": 'Occupancy'
+        }

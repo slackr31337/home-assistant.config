@@ -1,0 +1,19 @@
+- alias: Quiet Time Settings On
+  trigger:
+    platform: state
+    entity_id: sensor.quiet_time
+    to: 'True'
+  condition:
+    - condition: state
+      entity_id: sensor.occupancy_house
+      state: 'Yes'
+  action:
+    service: script.quiet_on
+
+- alias: Quiet Time Settings Off
+  trigger:
+    platform: state
+    entity_id: sensor.quiet_time
+    to: 'False'
+  action:
+    service: script.quiet_off
