@@ -3,17 +3,17 @@
     time_brightness:
       value_template: >-
         {%- if now().strftime('%H%M')|int < 530 -%}
-          90
+          70
         {%- elif now().strftime('%H%M')|int < 700 -%}
-          110
+          100
         {%- elif now().strftime('%H%M')|int < 800 -%}
-          150
+          120
         {%- elif now().strftime('%H%M')|int < 2000 -%}
           200
         {%- elif now().strftime('%H%M')|int < 2100 -%}
-          170
-        {%- elif now().strftime('%H%M')|int < 2200 -%}
           120
-        {%- else -%}
+        {%- elif now().strftime('%H%M')|int < 2200 -%}
           80
+        {%- else -%}
+          60
         {%- endif -%}

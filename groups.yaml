@@ -16,7 +16,7 @@ calendar_view:
   entities:
     - group.calendar_items
     - group.drive_time
-    - group.alarm_clock
+    #- group.alarm_clock
 
 light_view:
   view: yes
@@ -60,6 +60,7 @@ info_view:
   entities:
     - group.automation_override
     - group.scripts
+    - group.alarm_clock
 
 ##########################################
 
@@ -112,6 +113,7 @@ outdoor_lights:
   entities:
     - switch.front_outside_lights_switch
     - light.back_patio_light_level
+    - switch.basement_wall_plug_switch
 
 thermostat:
     name: Thermostat
@@ -225,13 +227,14 @@ alarm_clock:
   name: 'Alarm Clock'
   entities:
     - sensor.alarm_clock_time
-    - input_slider.alarm_clock_hour
-    - input_slider.alarm_clock_minute
+    - input_number.alarm_clock_hour
+    - input_number.alarm_clock_minute
     - input_boolean.alarm_clock_status
 
 scripts:
   name: Scripts
   entities:
     - script.good_night
-    - script.home_away
+    - script.quiet_on
+    - script.quiet_off
 
