@@ -1,299 +1,9 @@
-2017-10-29 22:23:28 ERROR (MainThread) [homeassistant.components.device_tracker] Error setting up platform mikrotik
+2017-11-24 14:02:08 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.pws_location fails
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/device_tracker/__init__.py", line 148, in async_setup_platform
-    platform.get_scanner, hass, {DOMAIN: p_config})
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/device_tracker/mikrotik.py", line 33, in get_scanner
-    scanner = MikrotikScanner(config[DOMAIN])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/device_tracker/mikrotik.py", line 53, in __init__
-    self.success_init = self.connect_to_device()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/device_tracker/mikrotik.py", line 87, in connect_to_device
-    cmd='/capsman/interface/getall'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/librouteros/api.py", line 80, in __call__
-    return self._readResponse()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/librouteros/api.py", line 106, in _readResponse
-    self._trapCheck(response)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/librouteros/api.py", line 121, in _trapCheck
-    raise MultiTrapError(*traps)
-librouteros.exceptions.MultiTrapError: no such command or directory (capsman), no such command prefix
-2017-10-29 22:23:40 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.next_calendar_fb_event fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 307, in async_device_update
-    yield from self.async_update()
-  File "/usr/lib/python3.5/asyncio/coroutines.py", line 210, in coro
-    res = func(*args, **kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/template.py", line 140, in async_update
-    self._state = self._template.async_render()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/template.py", line 116, in async_render
-    return self._compiled.render(kwargs).strip()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/jinja2/environment.py", line 1008, in render
-    return self.environment.handle_exception(exc_info, True)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/jinja2/environment.py", line 780, in handle_exception
-    reraise(exc_type, exc_value, tb)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/jinja2/_compat.py", line 37, in reraise
-    raise value.with_traceback(tb)
-  File "<template>", line 1, in top-level template code
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/jinja2/sandbox.py", line 427, in call
-    return __context.call(__obj, *args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/template.py", line 465, in strptime
-    return datetime.strptime(string, fmt)
-TypeError: strptime() argument 1 must be str, not None
-2017-10-30 00:30:11 ERROR (Thread-3) [homeassistant.components.sensor.speedtest] Error executing speedtest: Command '['/srv/homeassistant/homeassistant_venv/bin/python3', '/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/speedtest.py', '--simple', '--server', '6989']' returned non-zero exit status 1
-2017-10-30 01:51:18 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 146, in _new_conn
-    (self.host, self.timeout))
-requests.packages.urllib3.exceptions.ConnectTimeoutError: (<requests.packages.urllib3.connection.HTTPConnection object at 0x6847d510>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)')
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSerialNo (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x6847d510>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 91, in update
-    self._attrs['Serial Number'] = self._camera.serial_number
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 93, in serial_number
-    'magicBox.cgi?action=getSerialNo'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 494, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSerialNo (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x6847d510>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)'))
-2017-10-30 01:51:32 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x6847db50>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x6847db50>: Failed to establish a new connection: [Errno 111] Connection refused',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x6847db50>: Failed to establish a new connection: [Errno 111] Connection refused',))
-2017-10-30 01:51:39 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x61f412b0>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x61f412b0>: Failed to establish a new connection: [Errno 111] Connection refused',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x61f412b0>: Failed to establish a new connection: [Errno 111] Connection refused',))
-2017-10-30 09:55:32 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.pws_wind_kph fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 387, in _make_request
     six.raise_from(e, None)
   File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 383, in _make_request
     httplib_response = conn.getresponse()
   File "/usr/lib/python3.5/http/client.py", line 1198, in getresponse
     response.begin()
@@ -308,28 +18,28 @@ socket.timeout: timed out
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 440, in send
     timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 639, in urlopen
     _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 357, in increment
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/util/retry.py", line 357, in increment
     raise six.reraise(type(error), error, _stacktrace)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/packages/six.py", line 686, in reraise
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/packages/six.py", line 686, in reraise
     raise value
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 601, in urlopen
     chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 389, in _make_request
     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 309, in _raise_timeout
     raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
+urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 199, in async_update_ha_state
     yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 306, in async_device_update
     yield from self.hass.async_add_job(self.update)
   File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
     yield self  # This tells Task to wait for completion.
@@ -339,188 +49,41 @@ Traceback (most recent call last):
     raise self._exception
   File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
     result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 721, in update
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 720, in update
     self.rest.update()
   File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/util/__init__.py", line 306, in wrapper
     result = method(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 756, in update
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 755, in update
     result = requests.get(self._build_url(), timeout=10).json()
   File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 72, in get
     return request('get', url, params=params, **kwargs)
   File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 58, in request
     return session.request(method=method, url=url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 508, in request
     resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 618, in send
     r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 514, in send
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 521, in send
     raise ReadTimeout(e, request=request)
 requests.exceptions.ReadTimeout: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-2017-10-30 17:15:12 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.pws_temp_high_1d_f fails
+2017-11-24 16:20:44 ERROR (Thread-6) [homeassistant.components.sensor.darksky] Unable to connect to Dark Sky. ('Connection aborted.', OSError(0, 'Error'))
+2017-11-24 16:25:29 ERROR (MainThread) [homeassistant.core] Timer got out of sync. Resetting
+2017-11-24 16:28:42 ERROR (MainThread) [aiohttp.server] Error handling request
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/lib/python3.5/http/client.py", line 1198, in getresponse
-    response.begin()
-  File "/usr/lib/python3.5/http/client.py", line 297, in begin
-    version, status, reason = self._read_status()
-  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/lib/python3.5/socket.py", line 576, in readinto
-    return self._sock.recv_into(b)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 357, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/packages/six.py", line 686, in reraise
-    raise value
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
-    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 721, in update
-    self.rest.update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/util/__init__.py", line 306, in wrapper
-    result = method(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 756, in update
-    result = requests.get(self._build_url(), timeout=10).json()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 72, in get
-    return request('get', url, params=params, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 58, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 514, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-2017-10-30 17:40:24 ERROR (MainThread) [homeassistant.core] Timer got out of sync. Resetting
-2017-10-31 01:51:25 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connection.py", line 141, in _new_conn
     (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/util/connection.py", line 83, in create_connection
     raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 146, in _new_conn
-    (self.host, self.timeout))
-requests.packages.urllib3.exceptions.ConnectTimeoutError: (<requests.packages.urllib3.connection.HTTPConnection object at 0x64a2c870>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)')
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x64a2c870>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 494, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x64a2c870>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)'))
-2017-10-31 01:51:38 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/util/connection.py", line 73, in create_connection
     sock.connect(sa)
 ConnectionRefusedError: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 601, in urlopen
     chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 357, in _make_request
     conn.request(method, url, **httplib_request_kw)
   File "/usr/lib/python3.5/http/client.py", line 1107, in request
     self._send_request(method, url, body, headers)
@@ -532,423 +95,47 @@ Traceback (most recent call last):
     self.send(msg)
   File "/usr/lib/python3.5/http/client.py", line 877, in send
     self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connection.py", line 166, in connect
     conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connection.py", line 150, in _new_conn
     self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x62befed0>: Failed to establish a new connection: [Errno 111] Connection refused
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x57ebb9d0>: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 440, in send
     timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 668, in urlopen
     **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 668, in urlopen
     **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 668, in urlopen
     **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/connectionpool.py", line 639, in urlopen
     _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/urllib3/util/retry.py", line 388, in increment
     raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x62befed0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.12', port=80): Max retries exceeded with url: /cgi-bin/snapshot.cgi?channel=0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x57ebb9d0>: Failed to establish a new connection: [Errno 111] Connection refused',))
 
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x62befed0>: Failed to establish a new connection: [Errno 111] Connection refused',))
-2017-10-31 01:51:46 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x756f1530>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x756f1530>: Failed to establish a new connection: [Errno 111] Connection refused',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x756f1530>: Failed to establish a new connection: [Errno 111] Connection refused',))
-2017-10-31 06:10:43 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.pws_temp_f fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/lib/python3.5/http/client.py", line 1198, in getresponse
-    response.begin()
-  File "/usr/lib/python3.5/http/client.py", line 297, in begin
-    version, status, reason = self._read_status()
-  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/lib/python3.5/socket.py", line 576, in readinto
-    return self._sock.recv_into(b)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 357, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/packages/six.py", line 686, in reraise
-    raise value
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
-    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 721, in update
-    self.rest.update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/util/__init__.py", line 306, in wrapper
-    result = method(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 756, in update
-    result = requests.get(self._build_url(), timeout=10).json()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 72, in get
-    return request('get', url, params=params, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 58, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 514, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-2017-10-31 07:49:24 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.pws_weather_1d fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 386, in _make_request
-    six.raise_from(e, None)
-  File "<string>", line 2, in raise_from
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 382, in _make_request
-    httplib_response = conn.getresponse()
-  File "/usr/lib/python3.5/http/client.py", line 1198, in getresponse
-    response.begin()
-  File "/usr/lib/python3.5/http/client.py", line 297, in begin
-    version, status, reason = self._read_status()
-  File "/usr/lib/python3.5/http/client.py", line 258, in _read_status
-    line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
-  File "/usr/lib/python3.5/socket.py", line 576, in readinto
-    return self._sock.recv_into(b)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 357, in increment
-    raise six.reraise(type(error), error, _stacktrace)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/packages/six.py", line 686, in reraise
-    raise value
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 388, in _make_request
-    self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 308, in _raise_timeout
-    raise ReadTimeoutError(self, url, "Read timed out. (read timeout=%s)" % timeout_value)
-requests.packages.urllib3.exceptions.ReadTimeoutError: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 721, in update
-    self.rest.update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/util/__init__.py", line 306, in wrapper
-    result = method(*args, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/wunderground.py", line 756, in update
-    result = requests.get(self._build_url(), timeout=10).json()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 72, in get
-    return request('get', url, params=params, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/api.py", line 58, in request
-    return session.request(method=method, url=url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 514, in send
-    raise ReadTimeout(e, request=request)
-requests.exceptions.ReadTimeout: HTTPConnectionPool(host='api.wunderground.com', port=80): Read timed out. (read timeout=10)
-2017-11-01 01:51:27 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-socket.timeout: timed out
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 146, in _new_conn
-    (self.host, self.timeout))
-requests.packages.urllib3.exceptions.ConnectTimeoutError: (<requests.packages.urllib3.connection.HTTPConnection object at 0x62b6edd0>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)')
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x62b6edd0>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)'))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 494, in send
-    raise ConnectTimeout(e, request=request)
-requests.exceptions.ConnectTimeout: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by ConnectTimeoutError(<requests.packages.urllib3.connection.HTTPConnection object at 0x62b6edd0>, 'Connection to 10.40.0.11 timed out. (connect timeout=3.0)'))
-2017-11-01 01:51:34 ERROR (MainThread) [aiohttp.server] Error handling request
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x756f10f0>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/snapshot.cgi?channel=0 (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x756f10f0>: Failed to establish a new connection: [Errno 111] Connection refused',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/aiohttp/web_protocol.py", line 422, in start
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/aiohttp/web_protocol.py", line 416, in start
     resp = yield from self._request_handler(request)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/aiohttp/web.py", line 306, in _handle
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/aiohttp/web.py", line 323, in _handle
     resp = yield from handler(request)
-  File "/usr/lib/python3.5/asyncio/coroutines.py", line 213, in coro
-    res = yield from res
-  File "/usr/lib/python3.5/asyncio/coroutines.py", line 213, in coro
-    res = yield from res
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/http/ban.py", line 58, in ban_middleware_handler
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/http/ban.py", line 58, in ban_middleware
     return (yield from handler(request))
+  File "/usr/lib/python3.5/asyncio/coroutines.py", line 213, in coro
+    res = yield from res
+  File "/usr/lib/python3.5/asyncio/coroutines.py", line 213, in coro
+    res = yield from res
   File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/http/__init__.py", line 430, in handle
     result = yield from result
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/camera/__init__.py", line 333, in get
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/camera/__init__.py", line 387, in get
     response = yield from self.handle(request, camera)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/camera/__init__.py", line 353, in handle
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/camera/__init__.py", line 407, in handle
     image = yield from camera.async_camera_image()
   File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
     yield self  # This tells Task to wait for completion.
@@ -964,172 +151,12 @@ Traceback (most recent call last):
     timeout_cmd=timeout
   File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
     timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 521, in get
     return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 508, in request
     resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 618, in send
     r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
+  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 508, in send
     raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/snapshot.cgi?channel=0 (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x756f10f0>: Failed to establish a new connection: [Errno 111] Connection refused',))
-2017-11-01 01:51:36 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x64a83730>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x64a83730>: Failed to establish a new connection: [Errno 111] Connection refused',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x64a83730>: Failed to establish a new connection: [Errno 111] Connection refused',))
-2017-11-01 01:51:47 ERROR (MainThread) [homeassistant.helpers.entity] Update for sensor.garage_motion_detected fails
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 141, in _new_conn
-    (self.host, self.port), self.timeout, **extra_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 83, in create_connection
-    raise err
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/connection.py", line 73, in create_connection
-    sock.connect(sa)
-ConnectionRefusedError: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 600, in urlopen
-    chunked=chunked)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 356, in _make_request
-    conn.request(method, url, **httplib_request_kw)
-  File "/usr/lib/python3.5/http/client.py", line 1107, in request
-    self._send_request(method, url, body, headers)
-  File "/usr/lib/python3.5/http/client.py", line 1152, in _send_request
-    self.endheaders(body)
-  File "/usr/lib/python3.5/http/client.py", line 1103, in endheaders
-    self._send_output(message_body)
-  File "/usr/lib/python3.5/http/client.py", line 934, in _send_output
-    self.send(msg)
-  File "/usr/lib/python3.5/http/client.py", line 877, in send
-    self.connect()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 166, in connect
-    conn = self._new_conn()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connection.py", line 150, in _new_conn
-    self, "Failed to establish a new connection: %s" % e)
-requests.packages.urllib3.exceptions.NewConnectionError: <requests.packages.urllib3.connection.HTTPConnection object at 0x66149df0>: Failed to establish a new connection: [Errno 111] Connection refused
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 438, in send
-    timeout=timeout
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 678, in urlopen
-    **response_kw)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/connectionpool.py", line 649, in urlopen
-    _stacktrace=sys.exc_info()[2])
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/packages/urllib3/util/retry.py", line 388, in increment
-    raise MaxRetryError(_pool, url, error or ResponseError(cause))
-requests.packages.urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x66149df0>: Failed to establish a new connection: [Errno 111] Connection refused',))
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 204, in async_update_ha_state
-    yield from self.async_device_update()
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/helpers/entity.py", line 309, in async_device_update
-    yield from self.hass.async_add_job(self.update)
-  File "/usr/lib/python3.5/asyncio/futures.py", line 380, in __iter__
-    yield self  # This tells Task to wait for completion.
-  File "/usr/lib/python3.5/asyncio/tasks.py", line 304, in _wakeup
-    future.result()
-  File "/usr/lib/python3.5/asyncio/futures.py", line 293, in result
-    raise self._exception
-  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 55, in run
-    result = self.fn(*self.args, **self.kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/homeassistant/components/sensor/amcrest.py", line 83, in update
-    version, build_date = self._camera.software_information
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/system.py", line 67, in software_information
-    'magicBox.cgi?action=getSoftwareVersion'
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/amcrest/http.py", line 153, in command
-    timeout=self._timeout_protocol,
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 531, in get
-    return self.request('GET', url, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 518, in request
-    resp = self.send(prep, **send_kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/sessions.py", line 639, in send
-    r = adapter.send(request, **kwargs)
-  File "/srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/requests/adapters.py", line 502, in send
-    raise ConnectionError(e, request=request)
-requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.11', port=80): Max retries exceeded with url: /cgi-bin/magicBox.cgi?action=getSoftwareVersion (Caused by NewConnectionError('<requests.packages.urllib3.connection.HTTPConnection object at 0x66149df0>: Failed to establish a new connection: [Errno 111] Connection refused',))
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='10.40.0.12', port=80): Max retries exceeded with url: /cgi-bin/snapshot.cgi?channel=0 (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x57ebb9d0>: Failed to establish a new connection: [Errno 111] Connection refused',))

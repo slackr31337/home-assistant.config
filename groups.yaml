@@ -41,7 +41,7 @@ audio_view:
     - group.media_audio
     - media_player.mpd
     - group.media_tv
-    - media_player.roku2__brayden
+    - media_player.roku2_brayden
     #- media_player.gstreamer
     #- media_player.snapcast_client_b827eb6f00e5
     #- media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
@@ -77,9 +77,9 @@ house_mode:
    name: House Mode
    entities:
      - alarm_control_panel.house_alarm
-     - sensor.occupancy_house
-     - sensor.quiet_time
-#     - input_select.house_mode
+     - binary_sensor.house_occupied
+     - binary_sensor.away_mode
+     - binary_sensor.quiet_time
 
 occupancy:
    name: Occupancy
@@ -128,9 +128,13 @@ family:
   name: Family
   entities:
     - device_tracker.robert_phone
+    - device_tracker.robert_phone_bt
     - device_tracker.sarah_phone
+    - device_tracker.sarah_phone_bt
     - device_tracker.ana_phone
     - device_tracker.brayden_phone
+    - device_tracker.ievolve126b
+    - device_tracker.ievolve126b_bt
 
 weather:
   name: Weather
@@ -148,7 +152,7 @@ media_audio:
   name: Main Audio
   entities:
     - input_select.audio_player
-    - input_slider.audio_volume
+    - input_number.audio_volume
 
 media_pandora:
   name: Media Pandora
@@ -175,9 +179,13 @@ cameras:
 devices:
   name: Devices
   entities:
+    - sensor.internet
     - sensor.livingroomtv
     - sensor.anapc
+    - sensor.ana_3ds
     - sensor.braydenpc
+    - sensor.brayden_roku
+    - sensor.brayden_3ds
     - sensor.xboxone
     - sensor.xbox360
 
@@ -191,9 +199,9 @@ network:
 system:
   name: System
   entities:
-    - sensor.cpu_use
-    - sensor.ram_free
-    - sensor.disk_use_
+    - sensor.cpu_used
+    - sensor.ram_available
+    - sensor.disk_used_
     - sensor.received_eth0
     - sensor.sent_eth0
     - sensor.piuptime
@@ -234,7 +242,7 @@ alarm_clock:
 scripts:
   name: Scripts
   entities:
-    - script.good_night
+#    - script.good_night
     - script.quiet_on
     - script.quiet_off
 

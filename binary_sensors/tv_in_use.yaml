@@ -1,0 +1,13 @@
+- platform: template
+  sensors:
+    tv_in_use:
+      friendly_name: "TV in use"
+      delay_off:
+          minutes: 5
+      entity_id:
+        - sensor.online
+        - media_player.living_room_tv
+      value_template: >-
+        {{ is_state('sensor.online', '1')
+        and is_state('media_player.living_room_tv', 'playing') }}
+

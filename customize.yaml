@@ -29,6 +29,8 @@ sensor.piuptime:
   friendly_name: Uptime
   icon: 'mdi:clock-start'
 
+sensor.internet:
+  icon: 'mdi:access-point-network'
 sensor.xboxone:
   icon: 'mdi:xbox'
 sensor.xbox360:
@@ -43,6 +45,12 @@ sensor.anapc:
   icon: 'mdi:desktop-classic'
 sensor.braydenpc:
   icon: 'mdi:desktop-classic'
+sensor.brayden_roku:
+  icon: 'mdi:television-classic'
+sensor.ana_3ds:
+  icon: 'mdi:google-controller'
+sensor.brayden_3ds:
+  icon: 'mdi:google-controller'
 
 binary_sensor.workday_sensor:
   friendly_name: Workday Today
@@ -112,7 +120,6 @@ camera.amcrest_camera:
 media_player.mpd:
   friendly_name: Home Audio
 
-# Alarm clock sensors
 sensor.time:
   hidden: true
 sensor.alarm_clock_hour:
@@ -121,10 +128,10 @@ sensor.alarm_clock_minute:
   hidden: true
 sensor.alarm_clock_time_long:
   hidden: true
+
 sensor.alarm_clock_time:
   friendly_name: 'Alarm Set'
   icon: mdi:alarm
-# Alarm clock inputs
 input_slider.alarm_clock_hour:
   friendly_name: 'Hour'
   icon: mdi:timer
@@ -139,6 +146,13 @@ binary_sensor.floorplan:
   custom_ui_state_card: floorplan
   config: !include floorplan.yaml
 
-script.good_night:
-  friendly_name: Good Night
-  icon: mdi:sleep
+binary_sensor.house_occupied:
+  icon: 'mdi:home'
+#  device_class: occupancy
+
+binary_sensor.away_mode:
+  icon: 'mdi:home-outline'
+
+binary_sensor.quiet_time:
+  icon: 'mdi:music-off'
+

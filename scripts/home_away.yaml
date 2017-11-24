@@ -8,5 +8,6 @@ home_away:
         entity_id: media_player.mpd
     - service: notify.homepird3scom_html5_robert_phone
       data:
-        message: 'Home Away Mode {{now().strftime("%H:%M:%S")}}'
+        message: 'Home Away Mode on at {{now().strftime("%H:%M:%S")}}'
+
         

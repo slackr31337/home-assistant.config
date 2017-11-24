@@ -53,8 +53,8 @@
     to: 'disarmed'
   condition:
     - condition: state
-      entity_id: sensor.occupancy_robert
-      state: 'No'
+      entity_id: binary_sensor.robert_home
+      state: 'off'
   action:
     - service: script.turn_off
       entity_id: script.light_flash
@@ -69,8 +69,8 @@
     value_template: '{{ states.sensor.time.state == states.sensor.alarm_clock_time_long.state }}'
   condition:
     - condition: state
-      entity_id: sensor.occupancy_robert
-      state: 'Yes'
+      entity_id: binary_sensor.robert_home
+      state: 'on'
     - condition: state
       entity_id: alarm_control_panel.house_alarm
       state: armed_home

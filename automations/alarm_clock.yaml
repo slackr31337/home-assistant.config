@@ -11,6 +11,9 @@
         - condition: state
           entity_id: binary_sensor.workday_sensor
           state: 'on'
+        - condition: state
+          entity_id: binary_sensor.robert_home
+          state: 'on'
     action:
       service: script.wake_up
 

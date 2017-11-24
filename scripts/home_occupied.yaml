@@ -3,3 +3,6 @@ home_occupied:
   sequence:
     - service: scene.turn_on
       entity_id: scene.occupied_lights
+    - service: notify.homepird3scom_html5_robert_phone
+      data:
+        message: 'Home Away Mode off at {{now().strftime("%H:%M:%S")}}'

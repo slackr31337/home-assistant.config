@@ -8,8 +8,8 @@
      entity_id: input_boolean.disable_current_time_temp_notification
      state: 'off'
    - condition: state
-     entity_id: sensor.quiet_time
-     state: 'false'
+     entity_id: binary_sensor.quiet_time
+     state: 'off'
   action:
   - service: tts.picotts_say
     entity_id: media_player.homepi_audio

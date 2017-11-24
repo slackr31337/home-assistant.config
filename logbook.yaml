@@ -6,7 +6,7 @@ include:
     - sensor.speedtest_ping
     - sensor.speedtest_download
     - sensor.speedtest_upload
-    - sensor.livingroomtv
+#    - sensor.livingroomtv
     - sensor.xboxone
     - sensor.anapc
     - sensor.braydenpc
@@ -15,7 +15,15 @@ include:
     - sensor.weather_precip_intensity
     - sensor.weather_humidity
     - sensor.occupancy_house
-#    - sensor.garage_inside_motion_sensor
+    - sensor.occupancy_robert
+    - binary_sensor.house_occupied
+    - binary_sensor.quiet_time
+    - binary_sensor.away_mode
+    - script.quiet_off
+    - script.quiet_on
+    - script.wake_up
+    - script.home_away
+    - script.good_night
   domains:
     - sun
     - notify

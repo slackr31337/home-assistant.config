@@ -1,0 +1,9 @@
+- platform: template
+  sensors:
+    quiet_time:
+      friendly_name: "Quiet Time"
+      entity_id:
+        - sensor.time
+      value_template: >-
+        {{ (( states.binary_sensor.workday_sensor == "on" and ( now().hour < 6 or now().hour >= 19 )) 
+        or ( now().hour < 8 ) or now().hour >= 20 ) }}

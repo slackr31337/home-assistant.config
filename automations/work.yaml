@@ -5,9 +5,9 @@
       zone: zone.ievolve
       entity_id: device_tracker.robert_phone
     condition:
-      condition: time
-      after: '16:00:00'
-      before: '19:00:00'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
     action:
       - service: notify.homepird3scom
         data:
@@ -23,9 +23,12 @@
       - condition: state
         entity_id: sensor.livingroomtv
         state: 'Online'
-      - condition: time
-        after: '15:00:00'
-        before: '19:00:00'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.house_occupied
+        state: 'on'
     action:
       - service: notify.livingroom_tv
         data:

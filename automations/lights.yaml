@@ -1,8 +1,8 @@
 - alias: 'Lights - Away Mode Night'
   condition:
     - condition: state
-      entity_id: sensor.occupancy_house
-      state: 'No'
+      entity_id: binary_sensor.house_occupied
+      state: 'off'
     - condition: state
       entity_id: input_boolean.disable_auto_lights
       state: 'off'
@@ -14,22 +14,23 @@
     service: scene.turn_on
     entity_id: scene.away_lights
 
-- alias: 'Lights - Arrive Home Late'
+- alias: 'Quiet Time - Arrive Home Late'
   condition:
     - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
+      entity_id: binary_sensor.quiet_time
+      state: 'on'
     - condition: state
       entity_id: input_boolean.disable_auto_lights
       state: 'off'
   trigger:
     platform: state
-    entity_id: sensor.occupancy_house
-    to: 'Yes'
+    entity_id: binary_sensor.house_occupied
+    to: 'on'
   action:
-    service: scene.turn_on
-    entity_id: scene.home_lights
-
+    - delay: '00:30:01'
+    - service: script.turn_on
+      entity_id: script.quiet_on
+ 
 # ====================================================
 
 - alias: 'Outside Lights turn on'
