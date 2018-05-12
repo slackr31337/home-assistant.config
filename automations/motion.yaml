@@ -1,21 +1,3 @@
-- alias: Turn kitchen lights Motion 
-  trigger:
-    platform: state
-    entity_id: sensor.front_hall_motion_sensor
-    to: 'Motion'
-  condition:
-    - condition: state
-      entity_id: sun.sun
-      state: 'below_horizon'
-    - condition: state
-      entity_id: binary_sensor.house_occupied
-      state: 'off'
-  action:
-    service: light.turn_on
-    entity_id: light.kitchen_table_light_level
-#    data:
-#        brightness: '{{ states.sensor.time_brightness.state|int }}'
-
 - alias: Unexpected Motion Garage
   trigger:
     platform: state

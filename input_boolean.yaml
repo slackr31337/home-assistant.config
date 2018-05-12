@@ -33,3 +33,8 @@ disable_auto_lights:
 alarm_clock_status:
     initial: on
 
+disable_auto_tempature:
+  name: Disable Auto Tempature
+  initial: off
+  icon: mdi:thermometer-lines
+

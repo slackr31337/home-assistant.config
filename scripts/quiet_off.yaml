@@ -3,19 +3,19 @@ quiet_off:
   sequence:
     - service: zwave.set_config_parameter
       data_template: {
-        "node_id": 11,
+        "node_id": "{{ states.zwave.kids_room1.attributes.node_id }}",
         "parameter": 3,
         "value": 'Occupancy'
         }
     - service: zwave.set_config_parameter
       data_template: {
-        "node_id": 12,
+        "node_id": "{{ states.zwave.half_bathroom.attributes.node_id }}",
         "parameter": 3,
         "value": 'Occupancy'
         }
     - service: zwave.set_config_parameter
       data_template: {
-        "node_id": 18,
+        "node_id": "{{ states.zwave.front_door_light.attributes.node_id }}",
         "parameter": 3,
         "value": 'Occupancy'
         }

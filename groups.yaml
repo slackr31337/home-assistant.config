@@ -6,7 +6,7 @@ default_view:
   entities:
     - device_tracker.robert_phone
     - device_tracker.sarah_phone
-    - device_tracker.ana_phone
+    - device_tracker.adriana_phone_bt
     - device_tracker.brayden_3ds
     - group.weather
 
@@ -15,6 +15,7 @@ calendar_view:
   icon: mdi:calendar-clock
   entities:
     - group.calendar_items
+    - group.packages
     - group.drive_time
     #- group.alarm_clock
 
@@ -40,8 +41,9 @@ audio_view:
   entities:
     - group.media_audio
     - media_player.mpd
+    - group.media_spotify
     - group.media_tv
-    - media_player.roku2_brayden
+    - group.media_roku
     #- media_player.gstreamer
     #- media_player.snapcast_client_b827eb6f00e5
     #- media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
@@ -61,6 +63,7 @@ info_view:
     - group.automation_override
     - group.scripts
     - group.alarm_clock
+    - group.tempature_mode
 
 ##########################################
 
@@ -101,7 +104,7 @@ house_lights:
     - light.dining_room_light_level
     - light.kitchen_light_level
     - light.kitchen_table_light_level
-    - light.family_rm_level
+    - light.family_room_level
     - switch.half_bathroom_switch
     - switch.livingroom_plug1_switch
     - light.stairs_light_level
@@ -114,6 +117,13 @@ outdoor_lights:
     - switch.front_outside_lights_switch
     - light.back_patio_light_level
     - switch.basement_wall_plug_switch
+
+presence_lights:
+  name: Presence Lights
+  entities:
+    - light.kitchen_table_light_level
+    - light.front_door_light_level
+    - light.stairs_light_level
 
 thermostat:
     name: Thermostat
@@ -133,8 +143,12 @@ family:
     - device_tracker.sarah_phone_bt
     - device_tracker.ana_phone
     - device_tracker.brayden_phone
-    - device_tracker.ievolve126b
-    - device_tracker.ievolve126b_bt
+
+presence_devices:
+  name: Presence Devices
+  entities:
+    - device_tracker.robert_phone_bt
+    - device_tracker.sarah_phone_bt
 
 weather:
   name: Weather
@@ -167,7 +181,12 @@ media_tv:
 media_roku:
   name: Roku
   entities: 
-    - media_player.roku2
+    - media_player.roku2__brayden
+
+media_spotify:
+  name: Spotify
+  entities:
+    - media_player.spotify
 
 cameras:
   name: Cameras
@@ -216,12 +235,13 @@ drive_time:
     - sensor.home_to_work
     - sensor.work_to_i90
     - sensor.i90_to_home
-    - sensor.work_to_transit_rd
-    - sensor.transit_rd_to_home
+    - sensor.work_to_hopkins
+    - sensor.hopkins_to_home
 
 automation_override:
   name: Automation Override
   entities:
+    - input_boolean.disable_auto_tempature
     - input_boolean.disable_auto_lights
     - input_boolean.disable_device_auto_off
     - input_boolean.disable_media_player_light_control
@@ -231,6 +251,10 @@ automation_override:
     - input_boolean.disable_unexpected_motion_notification
     - input_boolean.disable_device_tampering_notification
 
+packages:
+    - sensor.fedex
+    - sensor.ups
+
 alarm_clock:
   name: 'Alarm Clock'
   entities:
@@ -239,10 +263,22 @@ alarm_clock:
     - input_number.alarm_clock_minute
     - input_boolean.alarm_clock_status
 
+tempature_mode:
+  name: 'Tempature Mode'
+  entities:
+    - sensor.tempature_away
+    - sensor.tempature_night
+    - sensor.tempature_home
+    - input_number.tempature_away
+    - input_number.tempature_night
+    - input_number.tempature_home
+
 scripts:
   name: Scripts
   entities:
 #    - script.good_night
     - script.quiet_on
     - script.quiet_off
-
+    - script.devices_off
+    - script.home_away
+    - script.home_occupied

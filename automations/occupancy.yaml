@@ -5,8 +5,8 @@
     to: 'on'
   condition:
     condition: time
-    after: '07:00:00'
-    before: '18:00:00'
+    after: '08:00:00'
+    before: '23:00:00'
   action:
     service: homeassistant.turn_on
     entity_id: script.home_away
@@ -16,6 +16,10 @@
     platform: state
     entity_id: binary_sensor.away_mode
     to: 'off'
+  condition:
+    condition: time
+    after: '08:00:00'
+    before: '23:45:00'
   action:
     service: homeassistant.turn_on
     entity_id: script.home_occupied

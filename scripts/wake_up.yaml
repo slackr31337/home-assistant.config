@@ -2,6 +2,10 @@ wake_up:
   sequence:
     #- service: scene.turn_on
     #  entity_id: scene.morning_lights
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_heating_1
+        temperature: '{{ float(states.input_number.tempature_home.state) }}'
     - service: light.turn_on
       data_template:
         entity_id: light.stairs_light_level

@@ -3,6 +3,10 @@ home_occupied:
   sequence:
     - service: scene.turn_on
       entity_id: scene.occupied_lights
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_heating_1
+        temperature: '{{ float(states.input_number.tempature_home.state) }}'
     - service: notify.homepird3scom_html5_robert_phone
       data:
         message: 'Home Away Mode off at {{now().strftime("%H:%M:%S")}}'

@@ -1,19 +1,10 @@
 light.front_door_light_level:
   polling_intensity: 1
   refresh_value: true
-light.kitchen_light_level:
-  polling_intensity: 1
-  refresh_value: true
 light.dining_room_light_level:
   polling_intensity: 1
   refresh_value: true
-light.kitchen_table_light_level:
-  polling_intensity: 1
-  refresh_value: true
 light.stairs_light_level:
-  polling_intensity: 1
-  refresh_value: true
-light.family_rm_level:
   polling_intensity: 1
   refresh_value: true
 switch.kids_room1_switch:
@@ -25,4 +16,6 @@ switch.garage_inside_motion_switch:
 switch.half_bathroom_switch:
   polling_intensity: 1
   refresh_value: true
-
+switch.switch:
+  ignored: false
+  polling_intensity: 0

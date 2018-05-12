@@ -28,3 +28,9 @@
   - device_id: holidays_in_united_states
     name: Holidays in United States
     track: true
+
+- cal_id: family02636017560975801671@group.calendar.google.com
+  entities:
+  - device_id: family
+    name: Family
+    track: true

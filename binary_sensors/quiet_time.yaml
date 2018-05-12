@@ -4,6 +4,10 @@
       friendly_name: "Quiet Time"
       entity_id:
         - sensor.time
+        - binary_sensor.workday_sensor
       value_template: >-
-        {{ (( states.binary_sensor.workday_sensor == "on" and ( now().hour < 6 or now().hour >= 19 )) 
-        or ( now().hour < 8 ) or now().hour >= 20 ) }}
+        {{ ( now().hour < 7 ) 
+        or ( now().hour > 19 ) }}
+
+#or ( states.binary_sensor.workday_sensor == "off" and now().hour < 9 )
+

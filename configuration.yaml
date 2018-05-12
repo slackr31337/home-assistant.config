@@ -17,14 +17,77 @@ updater:
 discovery:
 #hassio:
 conversation:
-history:
+cloud:
+wake_on_lan:
+shopping_list:
+sun:
 logger:
   default: error
 system_log:
   max_entries: 100
+recorder:
+  purge_interval: 30
+  purge_keep_days: 7
+#  db_url: !secret sql_uri
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - sun
+      - zwave
+    entities:
+      - sensor.last_boot
+      - sensor.date
+history:
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - calendar
+      - group
+      - sun
+      - zone
+      - zwave
+    entities:
+      - sensor.last_boot
+      - sensor.date
+      - sensor.time
+      - sensor.date__time
+      - sensor.utc
+      - sensor.time_brightness
+      - sensor.moon
+      - sensor.season
+      - sensor.uptime
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_wind_bearing
+      - sensor.dark_sky_wind_speed
+      - sensor.home_to_work
+      - sensor.i90_to_home
+      - sensor.internet
+      - sensor.online
+      - sensor.piuptime
+      - sensor.pws_location
+      - sensor.pws_station_id
+      - sensor.pws_weather_1d
+      - sensor.pws_weather_1n
+      - sensor.pws_weather_2d
+      - sensor.pws_weather_2n
+      - sensor.solary_angle
+      - sensor.ssl_certificate_expiry
+      - sensor.work_to_i90
+      - sensor.work_to_transit_rd
+      - sensor.home_to_work
+      - sensor.i90_to_home
+      - sensor.transit_rd_to_home
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_icon
+      - sensor.dark_sky_minutely_summary
+      - sensor.dark_sky_summary
+      - sensor.next_calendar_event
+      - sensor.next_calendar_fb_event
 
-shopping_list:
-sun:
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
@@ -33,6 +96,7 @@ light: !include_dir_merge_list lights
 scene: !include_dir_list scenes
 sensor: !include_dir_merge_list sensors
 script: !include_dir_merge_named scripts
+#script: !include scripts.yaml
 binary_sensor: !include_dir_merge_list binary_sensors
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
@@ -45,29 +109,18 @@ panel_iframe:
     icon: 'mdi:music-box-outline'  
     url: !secret music_url
 
-recorder:
-  purge_interval: 30
-  purge_keep_days: 7
-  db_url: !secret sql_uri
-  exclude:
-    domains:
-      - automation
-      - weblink
-      - updater
-    entities:
-      - sensor.last_boot
-      - sensor.date
-
 google_assistant:
   project_id: !secret google_project
   client_id: !secret google_client_id
   access_token: !secret google_access_token
   agent_user_id: !secret google_agent_id
-  api_key: !secret google_assistant_api
-  exposed_domains:
-    - switch
-    - light
-    - group
+  api_key: !secret google_api_key
+#  exposed_domains:
+#    - switch
+#    - light
+#    - scene
+#    - media_player
+#    - climate 
 
 alarm_control_panel:
   platform: manual
@@ -111,9 +164,20 @@ ffmpeg:
 media_player:
   - platform: pandora
 
+  - platform: spotify
+    client_id: !secret spotify_client_id
+    client_secret: !secret spotify_client_secret
+
+  - platform: roku
+    host: !secret ip_roku2
+
   - platform: webostv
     host: !secret ip_livingroom_tv 
     name: Living Room TV
+    turn_on_action:
+      service: wake_on_lan.send_magic_packet
+      data:
+        mac: mac_livingroom_tv
 
   - platform: vlc
     name: homepi_audio
@@ -135,6 +199,10 @@ mqtt:
   port: !secret mqtt_port
   username: !secret mqtt_username
   password: !secret mqtt_password
+  protocol: 3.1
+  client_id: home-assistant-1
+  tls_insecure: True
+  tls_version: auto
 
 device_tracker:
   - platform: bluetooth_tracker
@@ -144,6 +212,8 @@ device_tracker:
     waypoints: True
     waypoint_whitelist:
       - rd
+      - robert_phone
+      - robertphone
 
   - platform: nmap_tracker
     hosts: !secret ip_subnet
@@ -154,11 +224,10 @@ device_tracker:
      - !secret ip_gateway
      - !secret ip_hass
 
-#  - platform: snmp
-#    host: !secret mikrotik_host 
-#    community: !secret mikrotik_snmp
-#    baseoid: 1.3.6.1.4.1.14988.1.1.1.2.1.1
-#    baseoid: 1.3.6.1.4.1.14988.1.1.1.5.1.1
+  - platform: mikrotik
+    host: !secret mikrotik_host 
+    username: !secret mikrotik_user
+    password: !secret mikrotik_pass
 
   - platform: mikrotik
     host: !secret capsman_host
@@ -167,10 +236,10 @@ device_tracker:
 
 zwave:
   usb_path: /dev/ttyACM0
-  config_path: /srv/homeassistant/src/open-zwave-control-panel/config
-  new_entity_ids: true
-  polling_interval: 30000
-  device_config: !include zwave_device_config.yaml
+  config_path: /srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/libopenzwave-0.3.3-py3.5-linux-armv7l.egg/config
+  #new_entity_ids: true
+  #polling_interval: 30000
+  #device_config: !include zwave_device_config.yaml
  
 notify:
   - platform: html5
@@ -197,15 +266,22 @@ notify:
     sender_name: Home Assistant
 
 map:
+
 google:
   client_id: !secret google_calendar_client_id
   client_secret: !secret google_calendar_client_secret
 
+#device_sun_light_trigger:
+#  light_group: group.presence_lights
+#  light_profile: relax
+#  device_group: group.presence_devices
+#  disable_turn_off: 1
+
 amcrest:
-#  - host: !secret ip_camera1
-#    name: front_door
-#    username: !secret amcrest_user
-#    password: !secret amcrest_pass
+  - host: !secret ip_camera1
+    name: front_door
+    username: !secret amcrest_user
+    password: !secret amcrest_pass
     #stream_source: rtsp
     #resolution: low
     #    sensors:
@@ -215,8 +291,8 @@ amcrest:
     username: !secret amcrest_user
     password: !secret amcrest_pass2
     scan_interval: 3
-    sensors:
-      - motion_detector
+    #sensors:
+    #  - motion_detector
     #stream_source: rtsp
     #resolution: low
     #scan_interval: 10

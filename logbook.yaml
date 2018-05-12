@@ -14,7 +14,7 @@ include:
     - sensor.weather_temperature
     - sensor.weather_precip_intensity
     - sensor.weather_humidity
-    - sensor.occupancy_house
+#    - sensor.occupancy_house
     - sensor.occupancy_robert
     - binary_sensor.house_occupied
     - binary_sensor.quiet_time

@@ -7,6 +7,7 @@
 - platform: api_streams
 
 # Uptime
+- platform: uptime
 - platform: command_line
   name: piuptime
   command: uptime | sed 's/.*up \([^,]*\), .*/\1/'

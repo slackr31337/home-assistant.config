@@ -1,0 +1,6 @@
+  - platform: fedex
+    username: !secret fedex_user 
+    password: !secret fedex_pass
+
+
+

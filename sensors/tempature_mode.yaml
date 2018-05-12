@@ -1,0 +1,9 @@
+  - platform: template
+    sensors:
+      tempature_away:
+        value_template: '{{ states.input_number.tempature_away.state | int }}'
+      tempature_night:
+        value_template: '{{ states.input_number.tempature_night.state | int }}'
+      tempature_home:
+        value_template: '{{ states.input_number.tempature_home.state | int }}'
+
