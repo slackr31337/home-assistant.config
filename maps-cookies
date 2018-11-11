@@ -1,0 +1,13 @@
+#!/usr/bin/python3
+import re
+from locationsharinglib import Service
+
+#username = 'slackr31337@gmail.com'
+username = '7elyrd@gmail.com'
+password = 'slr47ely'
+
+service = Service(username, password, '.google_maps_location_sharing.cookies')
+for person in service.get_all_people():
+    print(person)
+
+

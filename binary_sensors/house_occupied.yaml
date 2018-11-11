@@ -2,30 +2,106 @@
   sensors:
     house_occupied:
       friendly_name: "House Occupied"
-      delay_on:
-          minutes: 2
       delay_off:
-          minutes: 15
+          minutes: 10
+      delay_on:
+          minutes: 1
       value_template: >-
-        {{ is_state('device_tracker.ana_phone', 'home')
-        or is_state('device_tracker.robert_phone', 'home')
-        or is_state('device_tracker.robert_phone_bt', 'home')
-        or is_state('device_tracker.sarah_phone', 'home')
-        or is_state('device_tracker.sarahs_iphone', 'home')
+        {{ is_state('device_tracker.adriana_location', 'home')
+        or is_state('device_tracker.robert_location', 'home')
+        or is_state('device_tracker.sarah_location', 'home')
         or is_state('binary_sensor.tv_in_use', 'on')
-        or is_state('sensor.dining_room_light_burglar', '8')
-        or is_state('sensor.half_bathroom_burglar', '8')
-        or is_state('sensor.front_door_light_burglar', '8')
-        or is_state('sensor.patio_plug_burglar', '8')
-        or is_state('sensor.kids_room1_burglar', '8') }}
+        or is_state('binary_sensor.dining_rm_occupied', 'on')
+        or is_state('binary_sensor.half_bath_occupied', 'on')
+        or is_state('binary_sensor.front_hall_occupied', 'on')
+        or is_state('binary_sensor.family_rm_occupied', 'on')
+        or is_state('binary_sensor.garage_occupied', 'on')
+        or is_state('binary_sensor.brayden_rm_occupied', 'on') }}
+
+    dining_rm_occupied:
+      friendly_name: "Dining Room"
+      delay_off:
+          minutes: 5
+      value_template: >-
+        {{ is_state('sensor.dining_room_light_burglar', '8') }}
+
+    living_rm_occupied:
+      friendly_name: "Living Room"
+      delay_off:
+          minutes: 20
+      value_template: >-
+        {{ is_state('sensor.dining_room_light_burglar', '8') 
+           or is_state('sensor.front_door_light_burglar', '8') }}
+
+    half_bath_occupied:
+      friendly_name: "Half Bath"
+      delay_off:
+          minutes: 5
+      value_template: >-
+        {{ is_state('sensor.half_bathroom_burglar', '8') }}
+
+    front_hall_occupied:
+      friendly_name: "Front Hall"
+      delay_off:
+          minutes: 5
+      value_template: >-
+        {{ is_state('sensor.front_door_light_burglar', '8') }}
+
+    family_rm_occupied:
+      friendly_name: "Family Room"
+      delay_off:
+          minutes: 10
+      value_template: >-
+        {{ is_state('sensor.patio_plug_burglar', '8') }}
+
+    garage_occupied:
+      friendly_name: "Garage"
+      delay_off:
+          minutes: 5
+      value_template: >-
+        {{ is_state('sensor.garage_inside_motion_burglar', '8') }}
+
+    brayden_rm_occupied:
+      friendly_name: "Brayden's Room"
+      delay_off:
+          minutes: 10
+      value_template: >-
+        {{ is_state('sensor.kids_room1_burglar', '8') }}
+
+    adriana_rm_occupied:
+      friendly_name: "Adriana's Room"
+      delay_off:
+          minutes: 10
+      value_template: >-
+        {{ is_state('sensor.kids_room2_burglar', '8') }}
 
     robert_home:
       friendly_name: "Robert is home"
       delay_off:
           minutes: 1
       value_template: >-
-        {{ is_state('device_tracker.robert_phone', 'home')
-        or is_state('device_tracker.robert_phone_bt', 'home')
-        or is_state('device_tracker.robert_phone_wifi', 'home') }}
+        {{ is_state('device_tracker.robert_phone', 'home') 
+           or is_state('device_tracker.robert_phone_bt', 'home')
+           or is_state('device_tracker.robert_phone_wifi', 'home') }}
 
+    sarah_home:
+      friendly_name: "Sarah is home"
+      delay_off:
+          minutes: 1
+      value_template: >-
+        {{ is_state('device_tracker.sarah_location', 'home') }}
+
+    brayden_home:
+      friendly_name: "Brayden is home"
+      delay_off:
+          minutes: 1
+      value_template: >-
+        {{ is_state('device_tracker.brayden_location', 'home') }}
+
+    adriana_home:
+      friendly_name: "Ana is home"
+      delay_off:
+          minutes: 1
+      value_template: >-
+        {{ is_state('device_tracker.adriana_location', 'home') }}
 

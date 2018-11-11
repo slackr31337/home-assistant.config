@@ -8,7 +8,8 @@
       entity_id: binary_sensor.house_occupied
       state: 'on'
   action:
-    service: script.quiet_on
+    service: script.turn_on
+    entity_id: script.quiet_on
 
 - alias: Quiet Time Settings Off
   trigger:
@@ -16,4 +17,5 @@
     entity_id: binary_sensor.quiet_time
     to: 'off'
   action:
-    service: script.quiet_off
+    service: script.turn_on
+    entity_id: script.quiet_off

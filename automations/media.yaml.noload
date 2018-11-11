@@ -1,0 +1,22 @@
+  - alias: 'Hide TV'
+    trigger:
+      platform: state
+      entity_id: media_player.living_room_tv
+      to: 'off'
+    action:
+      - service: group.set_visibility
+        entity_id: group.media_tv
+        data:
+          visible: False
+
+#  - alias: 'Show TV'
+#    trigger:
+#      platform: state
+#      entity_id: media_player.living_room_tv
+#      from: 'off'
+#    action:
+#      - service: group.set_visibility
+#        entity_id: group.media_tv
+#        data:
+#          visible: True
+#

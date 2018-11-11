@@ -16,7 +16,7 @@
 - alias: 'House Night TV Auto Off'
   trigger:
     platform: time
-    at: '23:15:00'
+    at: '23:35:00'
   condition:
     - condition: state
       entity_id: binary_sensor.house_occupied
@@ -27,11 +27,14 @@
     - condition: state
       entity_id: input_boolean.disable_device_auto_off
       state: 'off'
+    - condition: state
+      entity_id: binary_sensor.tv_in_use
+      state: 'off'
   action:
     service: script.turn_on
     entity_id: script.devices_off
 
-- alias: 'House Late Night Auto Off'
+- alias: 'House Late Night Lights Off'
   trigger:
     platform: time
     at: '01:15:00'
@@ -43,7 +46,9 @@
       entity_id: input_boolean.disable_device_auto_off
       state: 'off'
   action:
-    service: script.turn_on
-    entity_id: script.devices_off
+    - service: script.turn_on
+      entity_id: script.devices_off
+    - service: light.turn_off
+      entity_id: group.house_lights
 
 

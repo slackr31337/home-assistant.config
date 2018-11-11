@@ -2,29 +2,28 @@
   sensors:
     xboxone:
       friendly_name: 'Xbox One'
-      value_template: "{{ 'Online' if is_state('device_tracker.xboxone', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.xboxone', 'home') else '---' }}"
     xbox360:
       friendly_name: 'Xbox 360'
-      value_template: "{{ 'Online' if is_state('device_tracker.xbox360', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.xbox360', 'home') else '---' }}"
     livingroomtv:
       friendly_name: 'Living Room TV'
-      value_template: "{{ 'Online' if is_state('device_tracker.livingroomtv', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.livingroomtv', 'home') else '---' }}"
+    sarahpc:
+      friendly_name: 'Sarah PC'
+      value_template: "{{ 'Online' if is_state('device_tracker.sarah_pc', 'home') else '---' }}"
     anapc:
       friendly_name: 'Ana PC'
-      value_template: "{{ 'Online' if is_state('device_tracker.family01', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.family01', 'home') else '---' }}"
     ana_3ds:
       friendly_name: 'Ana 3DS'
-      value_template: "{{ 'Online' if is_state('device_tracker.ana_3ds', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.ana_3ds', 'home') else '---' }}"
     braydenpc: 
       friendly_name: 'Brayden PC'
-      value_template: "{{ 'Online' if is_state('device_tracker.braydenpc', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.braydenpc', 'home') else '---' }}"
     brayden_roku:
       friendly_name: 'Brayden Roku'
-      value_template: "{{ 'Online' if is_state('device_tracker.roku2_brayden', 'home') else 'Offline' }}"
+      value_template: "{{ 'Online' if is_state('device_tracker.roku2_brayden', 'home') else '---' }}"
     brayden_3ds:
       friendly_name: 'Brayden 3DS'
-      value_template: "{{ 'Online' if is_state('device_tracker.brayden_3ds', 'home') else 'Offline' }}"
-    thermostat_battery:
-      friendly_name: 'Thermostat Battery'
-      value_template: '{{ states.zwave.thermostat.attributes.battery_level }}'
-      unit_of_measurement: '%'
+      value_template: "{{ 'Online' if is_state('device_tracker.brayden_3ds', 'home') else '---' }}"

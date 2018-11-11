@@ -1,4 +1,43 @@
-- alias: 'Home - Away Mode'
+- alias: 'House Climate Morning Mode'
+  trigger:
+    platform: sun
+     event: sunrise
+     offset: '+00:30:00'
+  condition:
+   - condition: state
+     entity_id: binary_sensor.away_mode
+     state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_heating_1
+        temperature: '{{ float(states.input_number.tempature_home.state) }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_cooling_1
+        temperature: '{{ float(states.input_number.centralair_home.state) }}'
+
+- alias: 'House Climate Night Mode'
+  trigger:
+    platform: sun
+     event: sunset
+     offset: '+01:30:00'
+  condition:
+   - condition: state
+     entity_id: binary_sensor.away_mode
+     state: 'off'
+  action:
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_heating_1
+        temperature: '{{ float(states.input_number.tempature_night.state) }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_cooling_1
+        temperature: '{{ float(states.input_number.centralair_night.state) }}'
+
+
+- alias: 'House Away Mode'
   trigger:
     platform: state
     entity_id: binary_sensor.away_mode
@@ -11,7 +50,7 @@
     service: homeassistant.turn_on
     entity_id: script.home_away
 
-- alias: 'Home - Occupied Mode'
+- alias: 'House Occupied Mode'
   trigger:
     platform: state
     entity_id: binary_sensor.away_mode
@@ -21,7 +60,8 @@
     after: '08:00:00'
     before: '23:45:00'
   action:
-    service: homeassistant.turn_on
-    entity_id: script.home_occupied
-
+    - service: homeassistant.turn_on
+      entity_id: script.home_occupied
+    - service: homeassistant.turn_on
+      entity_id: script.quiet_off
 

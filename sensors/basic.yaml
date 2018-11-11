@@ -1,30 +1,25 @@
-############################################################
-#
-# Sensor
-#
-############################################################
-# API Stream Sensor
-- platform: api_streams
-
-# Uptime
+#- platform: api_streams
+- platform: moon
+- platform: season
 - platform: uptime
-- platform: command_line
-  name: piuptime
-  command: uptime | sed 's/.*up \([^,]*\), .*/\1/'
+- platform: version
 
-# Speedtest
 - platform: speedtest
   minute: 30
   hour:
-    - 0
+    - 2
     - 6
+    - 8
+    - 10
     - 12
+    - 14
+    - 16
     - 18
   monitored_conditions:
     - ping
     - download
     - upload
-  server_id: 6989
+  server_id: 6030
 
 - platform: systemmonitor
   resources:

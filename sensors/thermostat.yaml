@@ -1,0 +1,89 @@
+- platform: template
+  sensors:
+    thermostat_fan_mode:
+      friendly_name: 'Thermostat Fan Mode'
+      value_template: >-
+          {% if states.climate.thermostat_heating_1.attributes.fan_mode %}
+            {{ states.climate.thermostat_heating_1.attributes.fan_mode }}
+          {% else %}
+            'Loading'
+          {% endif %}
+
+    thermostat_mode:
+      friendly_name: 'Thermostat Mode'
+      value_template: >-
+          {% if states.climate.thermostat_heating_1.attributes.operation_mode %}
+            {{ states.climate.thermostat_heating_1.attributes.operation_mode }}
+          {% else %}
+            'Loading'
+          {% endif %}
+
+    thermostat_heat:
+      friendly_name: 'Heat Set To'
+      value_template: '{{ states.climate.thermostat_heating_1.attributes.temperature }}'
+
+    thermostat_cool:
+      friendly_name: 'A/C Set To'
+      value_template: '{{ states.climate.thermostat_cooling_1.attributes.temperature }}'
+
+    thermostat_state:
+      friendly_name: 'Thermostat State'
+      value_template: '{{ states.climate.thermostat_cooling_1.attributes.operating_state }}'
+      icon_template: >-
+                {% if states.climate.thermostat_cooling_1.attributes.operating_state == 'Cooling' %}
+                  mdi:air-conditioner
+                {% elif states.climate.thermostat_cooling_1.attributes.operating_state == 'Heating' %}
+                  mdi:fire
+                {% else %}
+                  mdi:fan-off
+                {% endif %}
+
+    thermostat_fan_state:
+      friendly_name: 'Fan State'
+      value_template: >-
+          {% if states.climate.thermostat_cooling_1.attributes.fan_state %}
+            {{ states.climate.thermostat_cooling_1.attributes.fan_state }}
+          {% else %}
+            'Loading'
+          {% endif %}
+      icon_template: >-
+                {% if states.climate.thermostat_cooling_1.attributes.fan_state == 'Idle' %}
+                  mdi:fan-off
+                {% else %}
+                  mdi:fan
+                {% endif %}
+
+    thermostat_battery:
+      friendly_name: 'Thermostat Battery'
+      unit_of_measurement: '%'
+      value_template: >-
+          {% if states.zwave.thermostat.attributes.battery_level %}
+            {{ states.zwave.thermostat.attributes.battery_level }}
+          {% else %}
+            'Loading'
+          {% endif %}
+      icon_template: >-
+                {% if states.zwave.thermostat.attributes.battery_level | int == 100 %}
+                  mdi:battery
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 90 %}
+                  mdi:battery-90
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 80 %}
+                  mdi:battery-80
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 70 %}
+                  mdi:battery-70
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 60 %}
+                  mdi:battery-60
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 50 %}
+                  mdi:battery-50
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 40 %}
+                  mdi:battery-40
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 30 %}
+                  mdi:battery-30
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 20 %}
+                  mdi:battery-20
+                {% elif states.zwave.thermostat.attributes.battery_level | int >= 10 %}
+                  mdi:battery-10
+                {% else %}
+                  mdi:battery-outline
+                {% endif %}
+

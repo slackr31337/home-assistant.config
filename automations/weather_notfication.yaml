@@ -9,7 +9,7 @@
      state: 'off'
   action:
   - service: notify.homepird3scom_html5_robert_phone
-    data:
+    data_template:
       message: "Good morning! Today: {{ states('sensor.pws_weather_1d') }}, tempatures ranging {{ states('sensor.pws_temp_low_1d_f') }} - {{ states('sensor.pws_temp_high_1d_f') }}°f  Now: {{ states('sensor.pws_temp_f') }}°f"  
       
 - alias: 'Send notification when sun sets'
@@ -22,5 +22,5 @@
      state: 'off'
   action:
   - service: notify.homepird3scom_html5_robert_phone
-    data:
+    data_template:
       message: "The sun has set. Tonight: {{ states('sensor.pws_weather_1n') }} Tomorrow: {{ states('sensor.pws_weather_2d') }} Now: {{ states('sensor.pws_temp_f') }}°f "

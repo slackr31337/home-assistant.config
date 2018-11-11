@@ -1,23 +1,21 @@
-
 default_view:
   view: yes
   name: Home
   icon: mdi:home
   entities:
-    - device_tracker.robert_phone
-    - device_tracker.sarah_phone
-    - device_tracker.adriana_phone_bt
-    - device_tracker.brayden_3ds
+    - device_tracker.robert_location
+    - device_tracker.sarah_location
+    - device_tracker.adriana_location
+    - device_tracker.brayden_location
+    - sensor.thermostat_temperature
+    - alarm_control_panel.house_alarm
+    - binary_sensor.house_occupied
+    - binary_sensor.away_mode
+    - binary_sensor.quiet_time
+    - group.drive_time_home
     - group.weather
-
-calendar_view:
-  view: yes
-  icon: mdi:calendar-clock
-  entities:
+#    - group.packages
     - group.calendar_items
-    - group.packages
-    - group.drive_time
-    #- group.alarm_clock
 
 light_view:
   view: yes
@@ -25,7 +23,20 @@ light_view:
   entities:
     - group.house_lights
     - group.outdoor_lights
+
+climate_view:
+  view: yes
+  icon: mdi:thermometer-lines
+  entities:
     - group.thermostat
+    #- group.tempature_mode
+
+#calendar_view:
+#  view: yes
+#  icon: mdi:calendar-clock
+#  entities:
+#    - group.calendar_items
+#    - group.packages
 
 security_view:
   view: yes
@@ -33,20 +44,22 @@ security_view:
   entities:
     - group.house_mode
     - group.occupancy
+
+camera_view:
+  view: yes
+  icon: mdi:cctv
+  entities:
     - group.cameras
 
-audio_view:
+media_view:
   view: yes
   icon: mdi:speaker
   entities:
-    - group.media_audio
-    - media_player.mpd
+#    - group.media_audio
+#    - media_player.mpd
     - group.media_spotify
     - group.media_tv
     - group.media_roku
-    #- media_player.gstreamer
-    #- media_player.snapcast_client_b827eb6f00e5
-    #- media_player.snapcast_group_8e859fc1bfde89146dc05a3e4c6e022f
 
 network_view:
   view: yes
@@ -60,10 +73,10 @@ info_view:
   view: yes
   icon: mdi:settings
   entities:
-    - group.automation_override
-    - group.scripts
     - group.alarm_clock
     - group.tempature_mode
+    - group.automation_override
+    - group.scripts
 
 ##########################################
 
@@ -74,6 +87,7 @@ calendar_items:
     - binary_sensor.workday_sensor
     - binary_sensor.workday_tomorrow
     - sensor.next_calendar_event
+    - sensor.next_holiday_event
     - sensor.next_calendar_fb_event
 
 house_mode:
@@ -87,14 +101,23 @@ house_mode:
 occupancy:
    name: Occupancy
    entities:
-     - sensor.template_last_motion
+#     - sensor.template_last_motion
+     - variable.last_motion
+     - binary_sensor.front_hall_occupied
      - sensor.front_hall_motion_sensor
-     - sensor.dining_room_motion_sensor
+     - binary_sensor.living_rm_occupied
      - sensor.living_room_motion_sensor
+     - binary_sensor.dining_rm_occupied
+     - sensor.dining_room_motion_sensor
+     - binary_sensor.family_rm_occupied
      - sensor.family_room_motion_sensor
+     - binary_sensor.half_bath_occupied
      - sensor.half_bath_motion_sensor
+     - binary_sensor.brayden_rm_occupied
      - sensor.kids_room1_motion_sensor
+     - binary_sensor.adriana_rm_occupied
      - sensor.kids_room2_motion_sensor
+     - binary_sensor.garage_occupied
      - sensor.garage_inside_motion_sensor
 
 house_lights:
@@ -121,9 +144,10 @@ outdoor_lights:
 presence_lights:
   name: Presence Lights
   entities:
-    - light.kitchen_table_light_level
+    - light.kitchen_light_level
     - light.front_door_light_level
     - light.stairs_light_level
+    - light.family_room_level
 
 thermostat:
     name: Thermostat
@@ -132,23 +156,9 @@ thermostat:
     - sensor.thermostat_temperature
     - climate.thermostat_cooling_1
     - climate.thermostat_heating_1
+    - sensor.thermostat_fan_state
+    - sensor.thermostat_state
     - sensor.thermostat_battery
-
-family:
-  name: Family
-  entities:
-    - device_tracker.robert_phone
-    - device_tracker.robert_phone_bt
-    - device_tracker.sarah_phone
-    - device_tracker.sarah_phone_bt
-    - device_tracker.ana_phone
-    - device_tracker.brayden_phone
-
-presence_devices:
-  name: Presence Devices
-  entities:
-    - device_tracker.robert_phone_bt
-    - device_tracker.sarah_phone_bt
 
 weather:
   name: Weather
@@ -174,14 +184,14 @@ media_pandora:
     - media_player.pandora
 
 media_tv:
-  name: Living Rm TV
+  name: Living Room TV
   entities:
     - media_player.living_room_tv
 
 media_roku:
   name: Roku
   entities: 
-    - media_player.roku2__brayden
+    - media_player.roku2_brayden
 
 media_spotify:
   name: Spotify
@@ -199,15 +209,19 @@ devices:
   name: Devices
   entities:
     - sensor.internet
+    - binary_sensor.tv_in_use
     - sensor.livingroomtv
+    - sensor.sarahpc
     - sensor.anapc
     - sensor.ana_3ds
     - sensor.braydenpc
     - sensor.brayden_roku
     - sensor.brayden_3ds
+    - sensor.sarahpc
     - sensor.xboxone
     - sensor.xbox360
-
+    - sensor.supersarah83
+    - sensor.brayden9751z
 network:
   name: Network
   entities:
@@ -218,24 +232,27 @@ network:
 system:
   name: System
   entities:
-    - sensor.cpu_used
-    - sensor.ram_available
-    - sensor.disk_used_
-    - sensor.received_eth0
-    - sensor.sent_eth0
-    - sensor.piuptime
+    - sensor.processor_use
+    - sensor.memory_free
+    - sensor.disk_use_percent_
+    - sensor.network_in_eth0
+    - sensor.network_out_eth0
+    - sensor.uptime
     - sensor.last_boot
     - sensor.ssl_certificate_expiry
     - updater.updater
 
-drive_time:
-  name: Drive Time
+drive_time_home:
+  name: Drive Time Home
   entities:
+    - sensor.fastest_route
     - sensor.robs_eta_to_home
-    - sensor.home_to_work
-    - sensor.work_to_i90
-    - sensor.i90_to_home
-    - sensor.work_to_hopkins
+    #- sensor.home_to_work
+    #- sensor.work_to_i290
+    - sensor.i290_to_home
+    #- sensor.work_to_i90
+    #- sensor.i90_to_home
+    #- sensor.work_to_hopkins
     - sensor.hopkins_to_home
 
 automation_override:
@@ -266,19 +283,56 @@ alarm_clock:
 tempature_mode:
   name: 'Tempature Mode'
   entities:
-    - sensor.tempature_away
-    - sensor.tempature_night
-    - sensor.tempature_home
+    #- sensor.tempature_away
+    #- sensor.tempature_night
+    #- sensor.tempature_home
     - input_number.tempature_away
     - input_number.tempature_night
     - input_number.tempature_home
+    - input_number.centralair_away
+    - input_number.centralair_night
+    - input_number.centralair_home
+
 
 scripts:
   name: Scripts
   entities:
 #    - script.good_night
+    - script.drive_time_hide
     - script.quiet_on
     - script.quiet_off
     - script.devices_off
     - script.home_away
     - script.home_occupied
+
+robert:
+  name: Rob
+  entities: 
+    - device_tracker.robert_phone_bt 
+    - device_tracker.robert_phone_wifi
+
+sarah:
+  name: Sarah
+  entities:
+    - device_tracker.sarah_phone
+    - device_tracker.sarah_phone_bt
+
+adriana:
+  name: Ana
+  entities:
+   - device_tracker.adriana_phone
+   - device_tracker.adriana_phone_bt
+   - device_tracker.ana_3ds
+
+brayden:
+  name: Brayden
+  entities:
+    - device_tracker.xboxone
+    - device_tracker.brayden_3ds
+    - device_tracker.braydenpc
+
+
+
+
+
+

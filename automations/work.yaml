@@ -1,3 +1,24 @@
+  - alias: 'Hide Drive Time'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: group.set_visibility
+        entity_id: group.drive_time_home
+        data:
+          visible: False
+
+  - alias: 'Robert is Home'
+    trigger:
+      - platform: state
+        entity_id: device_tracker.robert_phone
+        to: 'home'
+    action:
+      - service: group.set_visibility
+        entity_id: group.drive_time_home
+        data:
+          visible: False
+
   - alias: 'Leave Work notification'
     trigger:
       platform: zone
@@ -8,30 +29,173 @@
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
+      - condition: time
+        after: '15:00:00'
+        before: '20:30:00'
     action:
-      - service: notify.homepird3scom
+      - service: notify.homepird3scom_html5_robert_phone 
+        data_template:
+          message: "Your drive time is {{ states('sensor.robs_eta_to_home') }} minutes and the fastest route is {{ states('sensor.fastest_route') }}."
+      - service: group.set_visibility
+        entity_id: group.drive_time_home
         data:
-          message: 'Robert has left work!'
+          visible: True
 
-  - alias: 'Leave Work TV notification'
+  - alias: 'Morning Commuite to Work'
     trigger:
-      platform: zone
-      event: leave
-      zone: zone.ievolve
-      entity_id: device_tracker.robert_phone
+      platform: template
+      value_template: '{{ states.sensor.time.state == states.sensor.work_travel_time_long.state }}'
     condition:
-      - condition: state
-        entity_id: sensor.livingroomtv
-        state: 'Online'
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.workday_sensor
+          state: 'on'
+        - condition: state
+          entity_id: binary_sensor.robert_home
+          state: 'on'
+    action:
+      - service: notify.homepird3scom_html5_robert_phone
+        data_template:
+          message: "Time to leave for work! Drive time is {{ states('sensor.home_to_work') }} minutes."
+
+  - alias: 'Traffic Update notification'
+    trigger:
+      platform: state
+      entity_id: sensor.fastest_route
+    condition:
       - condition: state
         entity_id: binary_sensor.workday_sensor
         state: 'on'
+      - condition: time
+        after: '15:00:00'
+        before: '20:30:00'
       - condition: state
-        entity_id: binary_sensor.house_occupied
+        entity_id: device_tracker.robert_phone
+        state: 'Away'
+    action:
+      - service: notify.homepird3scom_html5_robert_phone
+        data_template:
+          message: "Traffic update! Take {{ states('sensor.fastest_route') }} and ETA home is {{ states('sensor.robs_eta_to_home') }} minutes."
+
+  - alias: 'Leave Work TV notification'
+    trigger:
+      - platform: zone
+        event: leave
+        zone: zone.ievolve
+        entity_id: device_tracker.robert_phone
+      - platform: zone
+        event: leave
+        zone: zone.hopkins_and_maple
+        entity_id: device_tracker.robert_phone
+      - platform: zone
+        event: leave
+        zone: zone.i90
+        entity_id: device_tracker.robert_phone
+    condition:
+      - condition: state
+        entity_id: binary_sensor.tv_in_use
         state: 'on'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: time
+        after: '15:00:00'
+        before: '20:30:00'
     action:
       - service: notify.livingroom_tv
+        data_template:
+          message: "Robert heading home! Left {{ trigger.zone.attributes.friendly_name }} and ETA home is {{ states('sensor.robs_eta_to_home') }} minutes."
+
+  - alias: 'Leave Work TTS notification'
+    trigger:
+      - platform: zone
+        event: leave
+        zone: zone.ievolve
+        entity_id: device_tracker.robert_phone
+    condition:
+      - condition: state
+        entity_id: binary_sensor.tv_in_use
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: time
+        after: '15:00:00'
+        before: '20:30:00'
+    action:
+      - service: tts.google_say
+        entity_id: media_player.homepi_audio
+        data_template:
+          message:  "Robert has left work! Left {{ trigger.zone.attributes.friendly_name }} and E T A home is {{ states('sensor.robs_eta_to_home') }} minutes."
+
+  - alias: 'Leave Work Traffic'
+    trigger:
+      platform: time
+      at: '17:05:00'
+    condition:
+      - condition: state
+        entity_id: device_tracker.robert_phone
+        state: 'I-Evolve'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+    action:
+      - service: script.turn_on
+        entity_id: script.drive_time_update
+      - service: notify.homepird3scom_html5_robert_phone
+        data_template:
+          message: "Time to leave work! The fastest route home is {{ states('sensor.fastest_route') }} and ETA home is {{ states('sensor.robs_eta_to_home') }} minutes."
+      - service: group.set_visibility
+        entity_id: group.drive_time_home
         data:
-          message: 'Robert has left work!'
+          visible: True
+
+  - alias: 'Update Drive Time'
+    trigger:
+      - platform: homeassistant
+        event: start
+    action:
+      - service: script.turn_on
+        entity_id: script.drive_time_update
+      - service: script.turn_on
+        entity_id: script.drive_time_update_work
+
+  - alias: 'Leave Work Traffic Update'
+    trigger:
+      - platform: time
+        minutes: '/3'
+        seconds: 00
+    condition:
+      - condition: time
+        after: '16:30:00'
+        before: '18:30:00'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+    action:
+      - service: script.turn_on
+        entity_id: script.drive_time_update
+
+  - alias: 'To Work Traffic Update'
+    trigger:
+      - platform: time
+        at: '07:01:00'
+      - platform: time
+        minutes: '/3'
+        seconds: 00
+    condition:
+      - condition: time
+        after: '07:10:00'
+        before: '08:30:00'
+      - condition: state
+        entity_id: binary_sensor.workday_sensor
+        state: 'on'
+      - condition: numeric_state
+        entity_id: sensor.robs_eta_to_work
+        above: 5
+    action:
+      - service: script.turn_on
+        entity_id: script.drive_time_update_work
 
 

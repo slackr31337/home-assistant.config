@@ -14,6 +14,32 @@
         {%- else -%}
           Unknown
         {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.dining_room_light_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
+        {%- endif -%}
+    living_room_motion_sensor:
+      friendly_name: Living Room
+      value_template: >-
+        {%- if is_state('sensor.dining_room_light_burglar', '3') -%}
+          Tamper
+        {%- elif is_state('sensor.dining_room_light_burglar', '8') -%}
+          Motion
+        {%- elif is_state('sensor.dining_room_light_burglar', '0') -%}
+          Ready
+        {%- elif is_state('sensor.dining_room_light_burglar', '254') -%}
+          Idle
+        {%- else -%}
+          Unknown
+        {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.dining_room_light_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
+        {%- endif -%}
     half_bath_motion_sensor:
       friendly_name: Half Bath
       value_template: >-
@@ -27,6 +53,12 @@
           Idle
         {%- else -%}
           Unknown
+        {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.half_bathroom_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
         {%- endif -%}
     front_hall_motion_sensor:
       friendly_name: Front Hall
@@ -42,6 +74,12 @@
         {%- else -%}
           Unknown
         {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.front_door_light_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
+        {%- endif -%}
     family_room_motion_sensor:
       friendly_name: Family Room
       value_template: >-
@@ -55,6 +93,12 @@
           Idle
         {%- else -%}
           Unknown
+        {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.patio_plug_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
         {%- endif -%}
     kids_room1_motion_sensor:
       friendly_name: Brayden's Room
@@ -70,6 +114,12 @@
         {%- else -%}
           Unknown
         {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.kids_room1_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
+        {%- endif -%}
     kids_room2_motion_sensor:
       friendly_name: Ana's Room
       value_template: >-
@@ -83,6 +133,12 @@
           Idle
         {%- else -%}
           Ready
+        {%- endif -%}
+      icon_template: >-
+        {%- if is_state('sensor.kids_room2_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
         {%- endif -%}
     garage_inside_motion_sensor:
       friendly_name: Garage Inside
@@ -98,12 +154,18 @@
         {%- else -%}
           Unknown
         {%- endif -%}
-    template_last_motion:
-        friendly_name: 'Last Motion'
-        value_template: >
-          {%- set sensors = [states.sensor.garage_inside_motion_sensor, states.sensor.kids_room1_motion_sensor, states.sensor.family_room_motion_sensor, states.sensor.front_hall_motion_sensor] %}
-          {% for sensor in sensors %}
-            {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
-              {{ sensor.name }}
-            {% endif %}
-          {% endfor %}
+      icon_template: >-
+        {%- if is_state('sensor.garage_inside_motion_burglar', '8') -%}
+          mdi:walk
+        {%- else -%}
+          mdi:eye-outline
+        {%- endif -%}
+#    template_last_motion:
+#        friendly_name: 'Last Motion'
+#        value_template: >
+#          {%- set sensors = [states.sensor.garage_inside_motion_sensor, states.sensor.kids_room1_motion_sensor, states.sensor.family_room_motion_sensor, states.sensor.front_hall_motion_sensor, states.sensor.dining_room_motion_sensor] %}
+#          {% for sensor in sensors %}
+#            {% if as_timestamp(sensor.last_changed) == as_timestamp(sensors | map(attribute='last_changed') | max) %}
+#              {{ sensor.name }}
+#            {% endif %}
+#          {% endfor %}

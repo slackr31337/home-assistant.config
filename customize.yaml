@@ -1,3 +1,10 @@
+sensor.piuptime:
+  friendly_name: System Uptime
+  icon: 'mdi:clock-start'
+
+sensor.uptime:
+  friendly_name: HA Uptime
+
 sensor.ssl_certificate_expiry:
   friendly_name: SSL Expires
 
@@ -25,9 +32,6 @@ sensor.speedtest_upload:
   icon: 'mdi:speedometer'
 sensor.speedtest_ping:
   icon: 'mdi:speedometer'
-sensor.piuptime:
-  friendly_name: Uptime
-  icon: 'mdi:clock-start'
 
 sensor.internet:
   icon: 'mdi:access-point-network'
@@ -44,6 +48,8 @@ sensor.livingroomtv:
 sensor.anapc:
   icon: 'mdi:desktop-classic'
 sensor.braydenpc:
+  icon: 'mdi:desktop-classic'
+sensor.sarahpc:
   icon: 'mdi:desktop-classic'
 sensor.brayden_roku:
   icon: 'mdi:television-classic'
@@ -65,7 +71,6 @@ sensor.memory_usage_real:
 binary_sensor.tampering:
   friendly_name: Sensor Tampering
   icon: mdi:shield-outline
-
 
 light.kitchen_table_light_level:
   friendly_name: Kitchen Table Light
@@ -142,13 +147,12 @@ input_boolean.alarm_clock_status:
   friendly_name: 'Activated'
   icon: mdi:alarm-check
 
-binary_sensor.floorplan:
-  custom_ui_state_card: floorplan
-  config: !include floorplan.yaml
+#binary_sensor.floorplan:
+#  custom_ui_state_card: floorplan
+#  config: !include floorplan.yaml
 
 binary_sensor.house_occupied:
   icon: 'mdi:home'
-#  device_class: occupancy
 
 binary_sensor.away_mode:
   icon: 'mdi:home-outline'

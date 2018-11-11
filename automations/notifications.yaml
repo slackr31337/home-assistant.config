@@ -2,9 +2,8 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.thermostat_battery
-    below: '10'
+    below: '20'
   action:
-    service: notify.notify
+    service: notify.homepird3scom
     data_template:
-      message: >
-        {{ trigger.to_state.attributes.friendly_name }} Has Low Battery
+      message: 'Thermostat Has Low Battery'

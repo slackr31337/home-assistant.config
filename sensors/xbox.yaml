@@ -1,0 +1,6 @@
+  - platform: xbox_live
+    api_key: !secret xbox_api
+    scan_interval: 600
+    xuid:
+      - !secret xbox1
+      - !secret xbox2

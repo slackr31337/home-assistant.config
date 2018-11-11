@@ -6,6 +6,7 @@
   baseoid: 1.3.6.1.4.1.14988.1.1.18.1.1.2.2
   accept_errors: true
   default_value: 0
+  scan_interval: 60
 
 - platform: template
   sensors:

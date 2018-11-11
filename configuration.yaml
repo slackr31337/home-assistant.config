@@ -8,11 +8,21 @@ homeassistant:
   customize: !include customize.yaml
   customize_domain: {}
   customize_glob: {}
+  auth_providers:
+    - type: homeassistant
+    - type: legacy_api_password 
 
+auth:
+http:
+  api_password: 2dx4bLkuszdDO3yy
+  use_x_forwarded_for: True
+  trusted_proxies:
+    - 127.0.0.1
+    - ::1
 frontend:
   javascript_version: latest
+
 config:
-http:
 updater:
 discovery:
 #hassio:
@@ -27,7 +37,7 @@ system_log:
   max_entries: 100
 recorder:
   purge_interval: 30
-  purge_keep_days: 7
+  purge_keep_days: 4
 #  db_url: !secret sql_uri
   exclude:
     domains:
@@ -36,9 +46,28 @@ recorder:
       - updater
       - sun
       - zwave
+      - calendar
+      - camera
+      - group
+      - zone
+      - input_boolean
     entities:
+      - binary_sensor.floorplan
+      - binary_sensor.workday_sensor
+      - binary_sensor.workday_tomorrow
       - sensor.last_boot
+      - sensor.utc
+      - sensor.time
       - sensor.date
+      - sensor.date__time
+      - sensor.next_calendar_event
+      - sensor.next_calendar_fb_event
+      - sensor.online
+      - sensor.pws_location
+      - sensor.pws_station_id
+      - sensor.pws_weather_2d
+      - sensor.season
+
 history:
   exclude:
     domains:
@@ -50,6 +79,7 @@ history:
       - sun
       - zone
       - zwave
+      - input_boolean
     entities:
       - sensor.last_boot
       - sensor.date
@@ -88,7 +118,6 @@ history:
       - sensor.next_calendar_event
       - sensor.next_calendar_fb_event
 
-
 group: !include groups.yaml
 automation: !include_dir_merge_list automations
 logbook: !include logbook.yaml
@@ -101,7 +130,7 @@ binary_sensor: !include_dir_merge_list binary_sensors
 input_boolean: !include input_boolean.yaml
 input_select: !include input_select.yaml
 input_number: !include input_number.yaml
-panel_custom: !include panel_custom.yaml
+#panel_custom: !include panel_custom.yaml
 
 panel_iframe:  
   music:  
@@ -109,12 +138,12 @@ panel_iframe:
     icon: 'mdi:music-box-outline'  
     url: !secret music_url
 
-google_assistant:
-  project_id: !secret google_project
-  client_id: !secret google_client_id
-  access_token: !secret google_access_token
-  agent_user_id: !secret google_agent_id
-  api_key: !secret google_api_key
+#google_assistant:
+#  project_id: !secret google_project
+#  client_id: !secret google_client_id
+#  access_token: !secret google_access_token
+#  agent_user_id: !secret google_agent_id
+#  api_key: !secret google_api_key
 #  exposed_domains:
 #    - switch
 #    - light
@@ -131,7 +160,12 @@ alarm_control_panel:
   disarm_after_trigger: false
 
 tts:
-  - platform: picotts
+  - platform: amazon_polly
+    aws_access_key_id: !secret aws_key_id
+    aws_secret_access_key: !secret aws_secret
+    voice: Salli
+
+  - platform: google
 
 zone:
   - name: !secret zone_name
@@ -158,6 +192,26 @@ zone:
     icon: mdi:car
     radius: 50
 
+  - name: !secret zone6_name
+    latitude: !secret zone6_latitude
+    longitude: !secret zone6_longitude
+    icon: mdi:car
+    radius: 50
+
+  - name: !secret zone7_name
+    latitude: !secret zone7_latitude
+    longitude: !secret zone7_longitude
+    icon: mdi:gas-station
+    radius: 75
+
+variable:  
+  last_motion:
+    value: 'Unknown'
+    restore: true
+    attributes:
+      icon: mdi:walk
+      friendly_name: "Last Motion"
+
 ffmpeg:
   ffmpeg_bin: /usr/bin/ffmpeg
  
@@ -169,7 +223,7 @@ media_player:
     client_secret: !secret spotify_client_secret
 
   - platform: roku
-    host: !secret ip_roku2
+#    host: !secret ip_roku2
 
   - platform: webostv
     host: !secret ip_livingroom_tv 
@@ -177,19 +231,19 @@ media_player:
     turn_on_action:
       service: wake_on_lan.send_magic_packet
       data:
-        mac: mac_livingroom_tv
+        mac: !secret mac_livingroom_tv
 
   - platform: vlc
     name: homepi_audio
     arguments: '--alsa-audio-device=hw:0,0'
 
-  - platform: snapcast
-    host: 127.0.0.1
+#  - platform: snapcast
+#    host: 127.0.0.1
 
-  - platform: mpd
-    host: 127.0.0.1
-    port: 6600
-    location: Multi-Room Controller
+#  - platform: mpd
+#    host: 127.0.0.1
+#    port: 6600
+#    location: Multi-Room Controller
 
   - platform: gstreamer
     pipeline: "audioresample ! audio/x-raw,rate=48000,channels=2,format=S16LE ! audioconvert ! wavenc ! filesink location=/tmp/snapfifo"
@@ -206,17 +260,32 @@ mqtt:
 
 device_tracker:
   - platform: bluetooth_tracker
+    request_rssi: True
+
+  - platform: google_maps
+    username: !secret google_acct
+    password: !secret google_pass
+    max_gps_accuracy: 100
+    new_device_defaults:
+      track_new_devices: true
 
   - platform: owntracks
     track_new_devices: yes
     waypoints: True
+    max_gps_accuracy: 400
     waypoint_whitelist:
       - rd
-      - robert_phone
       - robertphone
 
+  - platform: mqtt
+    devices:
+      robert_location: 'location/robert'
+      sarah_location: 'location/sarah'
+      adriana_location: 'location/adriana'
+      brayden_location: 'location/brayden'
+
   - platform: nmap_tracker
-    hosts: !secret ip_subnet
+    hosts: !secret ip_subnet2
     home_inteval: 5
     interval_seconds: 120
     consider_home: 240
@@ -234,36 +303,52 @@ device_tracker:
     username: !secret capsman_user
     password: !secret capsman_pass
 
+# /dev/ttyACM0
 zwave:
   usb_path: /dev/ttyACM0
   config_path: /srv/homeassistant/homeassistant_venv/lib/python3.5/site-packages/libopenzwave-0.3.3-py3.5-linux-armv7l.egg/config
-  #new_entity_ids: true
   #polling_interval: 30000
   #device_config: !include zwave_device_config.yaml
+
+zha:
+  usb_path: /dev/ttyUSB1
+  database_path: /home/homeassistant/.homeassistant/zigbee.db
+
+
+climate:
+  - platform: zwave
  
 notify:
   - platform: html5
     name: homepi.rd3s.com
-    gcm_api_key: !secret html5_gcm_api
+    gcm_api_key: !secret html5_gcm_key
     gcm_sender_id: !secret html5_gcm_sender
 
   - platform: webostv
     host: !secret ip_livingroom_tv
     name: livingroom_tv
 
+  - platform: twilio_sms
+    name: twilio
+    from_number: !secret twilio_number
+
   - name: gmail
     platform: smtp
     server: smtp.gmail.com
     port: 587
     timeout: 15
-    sender: !secret gmail
+    sender: !secret google_acct
     encryption: starttls
-    username: !secret gmail
-    password: !secret gmail_pass
+    username: !secret google_acct
+    password: !secret google_pass
     recipient:
       - !secret gmail
       - !secret phone_mail
     sender_name: Home Assistant
+
+twilio:
+  account_sid: !secret twilio_sid
+  auth_token: !secret twilio_token
 
 map:
 
@@ -282,10 +367,8 @@ amcrest:
     name: front_door
     username: !secret amcrest_user
     password: !secret amcrest_pass
-    #stream_source: rtsp
-    #resolution: low
-    #    sensors:
-    #      - motion_detector
+    sensors:
+      - motion_detector
   - host: !secret ip_camera2
     name: garage
     username: !secret amcrest_user
@@ -300,7 +383,7 @@ amcrest:
     name: back_yard
     username: !secret amcrest_user
     password: !secret amcrest_pass2
-#    stream_source: rtsp
-#    resolution: low
-#    scan_interval: 10
+    stream_source: rtsp
+    resolution: low
+    scan_interval: 10
 

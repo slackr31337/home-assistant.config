@@ -7,6 +7,10 @@ home_occupied:
       data_template:
         entity_id: climate.thermostat_heating_1
         temperature: '{{ float(states.input_number.tempature_home.state) }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_cooling_1
+        temperature: '{{ float(states.input_number.centralair_home.state) }}'
     - service: notify.homepird3scom_html5_robert_phone
-      data:
+      data_template:
         message: 'Home Away Mode off at {{now().strftime("%H:%M:%S")}}'

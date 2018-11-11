@@ -3,18 +3,7 @@ devices_off:
   sequence:
     - service: media_player.turn_off
       data:
-        entity_id: media_player.pandora
+        entity_id: media_player.spotify
     - service: media_player.turn_off
       data:
         entity_id: media_player.living_room_tv
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.mpd
-    - service: media_player.media_stop
-      data:
-        entity_id: media_player.roku2_brayden
-    - service: climate.set_temperature
-      data_template:
-        entity_id: climate.thermostat_heating_1
-        temperature: '{{ float(states.input_number.tempature_night.state) }}'    
-        

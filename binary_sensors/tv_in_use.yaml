@@ -5,6 +5,10 @@
       delay_off:
           minutes: 10
       value_template: >-
-        {{ is_state('sensor.online', '1')
-        and is_state('media_player.living_room_tv', 'playing') }}
-
+        {{ is_state('sensor.online', '1') and is_state('media_player.living_room_tv', 'playing') }}
+      icon_template: >-
+                {% if is_state('sensor.online', '1') and is_state('media_player.living_room_tv', 'playing') %}
+                  mdi:television-classic
+                {% else %}
+                  mdi:television-classic-off
+                {% endif %}

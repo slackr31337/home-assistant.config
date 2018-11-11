@@ -6,15 +6,15 @@ audio_player:
     - Pandora
     - HomePi
     - "None"
-  initial: "Home Audio"
+#  initial: "Home Audio"
   icon: mdi:cast
 
-house_mode:
-  name: Set House Mode
-  options:
-    - "Occupied"
-    - "Away"
-    - "Quiet"
-    - "Armed"
-  initial: "Occupied"
-  icon: mdi:home-variant
+#house_mode:
+#  name: Set House Mode
+#  options:
+#    - "Occupied"
+#    - "Away"
+#    - "Quiet"
+#    - "Armed"
+#  initial: "Occupied"
+#  icon: mdi:home-variant

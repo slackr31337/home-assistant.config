@@ -1,0 +1,54 @@
+- platform: waze_travel_time
+  name: Home to Work
+  origin: Home
+  destination: I-Evolve
+  region: 'US'
+  scan_interval: 3600
+
+- platform: waze_travel_time
+  name: Robs ETA To Work
+  origin: device_tracker.robert_phone
+  destination: I-Evolve
+  region: 'US'
+  scan_interval: 600
+
+- platform: waze_travel_time
+  name: Robs ETA To Home
+  origin: device_tracker.robert_phone
+  destination: Home
+  region: 'US'
+  scan_interval: 600
+
+- platform: waze_travel_time
+  name: I90 to Home
+  origin: I90
+  destination: Home
+  region: 'US'
+  scan_interval: 3600
+
+- platform: waze_travel_time
+  name: I290 to Home
+  origin: I290
+  destination: Home
+  region: 'US'
+  scan_interval: 3600
+
+- platform: waze_travel_time
+  name: Hopkins to Home
+  origin: Hopkins and Maple
+  destination: Home
+  region: 'US'
+  scan_interval: 3600
+
+- platform: template
+  sensors:
+    fastest_route:
+      friendly_name: Fastest Route Home
+      value_template: >-
+        {%- if states.sensor.i290_to_home.state | int > states.sensor.hopkins_to_home.state | int -%} 
+          Hopkins and Maple
+        {%- else -%}
+          I-290 to I-90
+        {%- endif -%}
+
+

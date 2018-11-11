@@ -1,0 +1,16 @@
+  - platform: template
+    sensors:
+      work_travel_hour:
+        value_template: '{{ 7 }}'
+      work_travel_minute:
+        value_template: '{{ 30 - (states("sensor.home_to_work") | int) }}'
+      work_travel_time_long:
+        value_template: >-
+          {% if states.sensor.work_travel_hour.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.work_travel_hour.state }}:
+          {%- if states.sensor.work_travel_minute.state|length == 1 -%}
+            0
+          {%- endif -%}
+            {{ states.sensor.work_travel_minute.state }}

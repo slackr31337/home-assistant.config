@@ -5,9 +5,32 @@
       value_template: >
           {{ strptime(states.calendar.slackr31337gmailcom.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %B %d") }}:
           {{ states.calendar.slackr31337gmailcom.attributes.message }}
+      icon_template: >-
+          {% if is_state('calendar.slackr31337gmailcom', 'on') %}
+            mdi:calendar-today
+          {% else %}
+            mdi:calendar-blank
+          {% endif %}
+    next_holiday_event:
+      friendly_name: 'Next Holiday'
+      value_template: >
+          {{ strptime(states.calendar.holidays_in_united_states.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %B %d") }}:
+          {{ states.calendar.holidays_in_united_states.attributes.message }}
+      icon_template: >-
+          {% if is_state('calendar.holidays_in_united_states', 'on') %}
+            mdi:calendar-today
+          {% else %}
+            mdi:calendar-blank
+          {% endif %}
     next_calendar_fb_event:
       friendly_name: 'Facebook'
       value_template: >
           {{ strptime(states.calendar.rob_dunmires_facebook_events.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A, %B %d") }}:
           {{ states.calendar.rob_dunmires_facebook_events.attributes.message }}
+      icon_template: >-
+          {% if is_state('calendar.rob_dunmires_facebook_events', 'on') %}
+            mdi:calendar-today
+          {% else %}
+            mdi:calendar-blank
+          {% endif %}
 

@@ -3,7 +3,10 @@
       light.stairs_light_level:
         state: on
         brightness: 150 
-      #light.kitchen_table_light_level:
-      #  state: on
-      #light.kitchen_light_level:
-      #  state: on
+      light.kitchen_light_level:
+        state: off
+      light.dining_room_light_level:
+        state: off
+      light.family_room_level:
+        state: off
+

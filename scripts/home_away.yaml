@@ -1,23 +1,22 @@
 home_away:
   alias: "Away Mode"
   sequence:
-    #- service: scene.turn_on
-    #  entity_id: scene.away_lights
-    - service: media_player.turn_off
+    #- service: media_player.turn_off
+    #  data:
+    #    entity_id: media_player.living_room_tv
+    - service: light.turn_off
       data:
-        entity_id: media_player.mpd
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.living_room_tv
-    - service: media_player.turn_off
-      data:
-        entity_id: media_player.roku2__brayden
+        entity_id: light.dining_room_light_level, light.kitchen_light_level, light.stairs_light_level, light.back_patio_light_level, light.family_room_level
     - service: climate.set_temperature
       data_template:
         entity_id: climate.thermostat_heating_1
         temperature: '{{ float(states.input_number.tempature_away.state) }}'
+    - service: climate.set_temperature
+      data_template:
+        entity_id: climate.thermostat_cooling_1
+        temperature: '{{ float(states.input_number.centralair_away.state) }}'
     - service: notify.homepird3scom_html5_robert_phone
-      data:
+      data_template:
         message: 'Home Away Mode on at {{now().strftime("%H:%M:%S")}}'
 
         

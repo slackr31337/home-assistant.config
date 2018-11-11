@@ -16,6 +16,9 @@
 
 - alias: 'Quiet Time - Arrive Home Late'
   condition:
+    - condition: time
+      after: '20:00:00'
+      before: '23:59:59'
     - condition: state
       entity_id: binary_sensor.quiet_time
       state: 'on'
@@ -27,7 +30,7 @@
     entity_id: binary_sensor.house_occupied
     to: 'on'
   action:
-    - delay: '00:30:01'
+    - delay: '00:10:01'
     - service: script.turn_on
       entity_id: script.quiet_on
  
@@ -79,6 +82,50 @@
   action:
     service: switch.turn_off
     entity_id: switch.basement_wall_plug_switch
+
+
+- alias: 'Family Room Lights turn off'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.family_rm_occupied
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+    - condition: state
+      entity_id: light.family_room_level
+      state: 'on'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.family_room_level
+
+- alias: 'Stairs Lights turn off'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_hall_occupied
+    to: 'off'
+    for:
+      minutes: 10
+  condition:
+    - condition: state
+      entity_id: input_boolean.disable_auto_lights
+      state: 'off'
+    - condition: state
+      entity_id: light.stairs_light_level
+      state: 'on'
+    - condition: state
+      entity_id: sun.sun
+      state: 'below_horizon'
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.stairs_light_level
+
 
 # ====================================================
 

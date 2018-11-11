@@ -1,3 +1,15 @@
+- alias: 'Time at HA startup'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: '00:00:24'
+    - service:  tts.google_say
+      entity_id: media_player.homepi_audio
+      data_template:
+        message: "It is now {{ now().strftime('%I %M %p') }} and {{ states('sensor.pws_temp_f') }} degrees outside."
+
+
 - alias: 'Speak current time and tempature'
   trigger:
    - platform: time
@@ -11,10 +23,9 @@
      entity_id: binary_sensor.quiet_time
      state: 'off'
   action:
-  - service: tts.picotts_say
-    entity_id: media_player.homepi_audio
-    data:
-      message: 'The time is now {{now().strftime("%H %M")}}'
-
-#        and the tempature is {{ sensor.pws_temp_f }} degrees.
+    - delay: '00:00:03'
+    - service: tts.google_say
+      entity_id: media_player.homepi_audio
+      data_template:
+        message: "It is now {{ now().strftime('%I %p') }} and {{ states('sensor.pws_temp_f') }} degrees outside."
 

@@ -2,6 +2,6 @@
     entities:
       group.house_lights:
         state: off    
-      light.kitchen_table_light_level:
+      light.kitchen_light_level:
         state: on
         brightness: 128

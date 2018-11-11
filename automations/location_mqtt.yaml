@@ -1,0 +1,118 @@
+- alias: 'Location at HA startup'
+  trigger:
+    - platform: homeassistant
+      event: start
+  action:
+    - delay: '00:00:24'
+    - service: mqtt.publish
+      data: {"topic": "location/robert", "payload_template": "{{ states('group.robert') }}"}
+    - service: mqtt.publish
+      data: {"topic": "location/sarah", "payload_template": "{{ states('group.sarah') }}"}
+    - service: mqtt.publish
+      data: {"topic": "location/brayden", "payload": "home"}
+
+- alias: location_robert
+  trigger:
+    - platform: state
+      entity_id: device_tracker.robert_phone
+  condition:
+    - condition: state
+      entity_id: binary_sensor.robert_home
+      state: 'off'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/robert", "payload_template": "{{ states('device_tracker.robert_phone') }}"}
+
+- alias: location_robert_wifi
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.robert_home
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '23:30:00'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/robert", "payload_template": "{{ states('group.robert') }}"}
+
+- alias: location_sarah
+  trigger:
+    - platform: state
+      entity_id: group.sarah
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '23:30:00'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/sarah", "payload_template": "{{ states('group.sarah') }}"}
+
+- alias: location_adriana
+  trigger:
+    - platform: state
+      entity_id: group.adriana
+  condition:
+    - condition: time
+      after: '06:00:00'
+      before: '23:30:00'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/adriana", "payload_template": "{{ states('group.adriana') }}"}
+
+- alias: location_brayden_room
+  trigger:
+    - platform: state
+      entity_id: device_tracker.braydenpc
+      to: 'home'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.brayden_rm_occupied
+      state: 'on'
+    - condition: time
+      after: '06:00:00'
+      before: '23:30:00'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/brayden", "payload": "home"}
+
+- alias: location_brayden_school
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_hall_occupied
+      to: 'off'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: 'on'
+    - condition: state
+      entity_id: binary_sensor.brayden_rm_occupied
+      state: 'off'
+    - condition: state
+      entity_id: device_tracker.brayden_location
+      state: 'home'
+    - condition: time
+      after: '08:15:00'
+      before: '09:30:00'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/brayden", "payload": "school"}
+
+- alias: location_brayden
+  trigger:
+    - platform: state
+      entity_id: sensor.brayden9751z
+      to: 'Online'
+  condition:
+    condition: and
+    conditions:
+    - condition: state
+      entity_id: device_tracker.xboxone
+      state: 'home'
+    - condition: state
+      entity_id: binary_sensor.family_rm_occupied
+      state: 'on'
+  action:
+    service: mqtt.publish
+    data: {"topic": "location/brayden", "payload": "home"}
